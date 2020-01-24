@@ -1,5 +1,6 @@
-# Import package to generate random numbers
+# Import packages
 import random
+import data_player_name
 
 # Welcome message for player
 WELCOME_MESSAGE = "This is a simple game of Paskahousut. Get ready to play!"
@@ -7,10 +8,9 @@ print(WELCOME_MESSAGE)
 
 
 # Gets the player's name
-def GetName():
+def GetSaveName():
     player_name = input("Enter your name: ")
-    print("Hello " + player_name + "!")
-    return player_name
+    data_player_name.setPlayerName(player_name)
 
 
 # Set first player (as Player or Computer) to start game
@@ -55,7 +55,8 @@ def ComputerTurn():
 
 # Game() calls the functions that make the game run
 def Game():
-    GetName()
+    GetSaveName()
+    print("Hello " + data_player_name.getPlayerName() + "!")
     player_first = SetFirstPlayer()
     GameLoop(player_first)
 
