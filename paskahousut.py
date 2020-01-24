@@ -2,8 +2,8 @@
 import random
 
 # Welcome message for player
-welcome_message = "This is a simple game of Paskahousut. Get ready to play!"
-print(welcome_message)
+WELCOME_MESSAGE = "This is a simple game of Paskahousut. Get ready to play!"
+print(WELCOME_MESSAGE)
 
 
 # Gets the player's name
@@ -23,40 +23,34 @@ def GetName():
 #         elif counter >= 10:
 #             break
 #     return GameOver
-
-
 # Set first player (as Player or Computer) to start game
 def SetFirstPlayer():
-    # print("Here is a random number:")
-    # print(random.randint(0, 1))
     start_num = random.randint(0, 1)
-    # print(start_num)
+    player_first = False
+
     if start_num == 0:
-        PlayerFirst = True
-        print("The Player goes first.")
-    elif start_num == 1:
-        PlayerFirst = False
-        print("The Computer goes first.")
-    return PlayerFirst
+        player_first = True
+
+    return player_first
 
 
 # GameLoop alternates between the player's and computer's turn
-def GameLoop():
-    print("The game loop has started.")
-    GameOver = False
-    PlayerFirst = SetFirstPlayer()
-    while GameOver == False:
-        print("The game is not over!") 
-        if PlayerFirst == True:
+def GameLoop(player_first):
+    print("The game loop has started.") # debugging
+    game_over = False
+
+    while game_over == False:
+        print("The game is not over!") # debugging
+        if player_first == True:
             PlayerTurn()
             ComputerTurn()
-        elif PlayerFirst == False:
+        elif player_first == False:
             ComputerTurn()
             PlayerTurn()
-        break
-    GameOver = True
-    print("The game is over!")
-    print("The game loop has ended.")
+        break   # debugging
+    
+    game_over = True
+    print("The game is over!") # debugging
 
 
 # PlayerTurn starts player's turn
@@ -72,8 +66,9 @@ def ComputerTurn():
 # Game() calls the functions that make the game run
 def Game():
     GetName()
-    GameLoop()
+    player_first = SetFirstPlayer()
+    GameLoop(player_first)
 
 
-# Call Game() to start game
+# Entry point function
 Game()
