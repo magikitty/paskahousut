@@ -13,16 +13,6 @@ def GetName():
     return player_name
 
 
-#GameOver determines whether or not the game is over for testing purposes
-# def GameIsOver():
-#     counter = 0
-#     for num in range(1-11):
-#         if counter < 10:
-#             GameOver = False
-#             counter += 1
-#         elif counter >= 10:
-#             break
-#     return GameOver
 # Set first player (as Player or Computer) to start game
 def SetFirstPlayer():
     start_num = random.randint(0, 1)
