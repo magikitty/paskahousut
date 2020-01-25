@@ -1,10 +1,11 @@
+import data_read_write
+
 DATA_PLAYER_NAME = "data_mutable/player_name.txt"
 
-# Create or overwrite DATA_PLAYER_NAME file with player's name
+
 def setPlayerName(textPlayerName):
-  f = open(DATA_PLAYER_NAME, "w")
-  f.write(textPlayerName)
+    data_read_write.writeToFile(textPlayerName, DATA_PLAYER_NAME)
+
 
 def getPlayerName():
-  f = open(DATA_PLAYER_NAME, "r")
-  return f.read()
+    return data_read_write.readFromFile(DATA_PLAYER_NAME)
