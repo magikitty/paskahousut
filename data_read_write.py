@@ -8,3 +8,8 @@ def writeToFile(content, fileToWriteTo):
 def readFromFile(fileToReadFrom):
     doc = open(fileToReadFrom, "r")
     return doc.read()
+
+
+def countContent(contentToCount, fileToCountFrom):
+    allContent = readFromFile(fileToCountFrom)
+    return allContent.count(contentToCount)
