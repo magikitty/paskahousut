@@ -1,5 +1,6 @@
 # Import packages
 import random
+import data_cards
 import data_player_name
 
 # Welcome message for player
@@ -55,6 +56,7 @@ def ComputerTurn():
 
 # Game() calls the functions that make the game run
 def Game():
+    data_cards.populateDeck()
     GetSaveName()
     print("Hello " + data_player_name.getPlayerName() + "!")
     player_first = SetFirstPlayer()
