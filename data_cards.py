@@ -1,5 +1,6 @@
 import data_read_write
 import data_mutable
+import random
 
 DATA_ALL_CARDS = "data_immutable/all_cards.txt"
 DATA_DECK = "data_mutable/cards_in_deck.txt"
@@ -16,11 +17,17 @@ def getAllCards():
     return doc.read()
 
 
-# Returns card at given index number from DATA_ALL_CARDS
 def getCardNumber(cardNumber):
-    doc = open("data_immutable/all_cards.txt", "r")
+    doc = open(DATA_DECK, "r")
     all_lines = doc.readlines()
-    return all_lines[cardNumber]
+    return all_lines[cardNumber].strip("\n")
+
+
+def getRandomCard():
+    max_number = countCardsInDeck()
+    random_number = random.randint(0, max_number)
+    random_card = getCardNumber(random_number)
+    return random_card
 
 
 def countCardsInDeck():
