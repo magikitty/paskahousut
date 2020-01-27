@@ -39,8 +39,21 @@ def countCardsInDeck():
 
 def dealCardsToPlayer():
     card = getRandomCard()
+    print("dealt card: " + card)
     data_read_write.writeToFile(card, HAND_PLAYER)
-    # add functionality to remove card after it is dealt from deck
+    removeCardFromDeck(card)
+
+
+def removeCardFromDeck(card):
+    deck = open(DATA_DECK, "r")
+    cards_in_deck = deck.readlines()
+
+    data_read_write.writeToFile("", DATA_DECK)
+
+    for line in cards_in_deck:
+        if card not in line:
+            new_deck = open(DATA_DECK, "a")
+            new_deck.write(line)
 
 
 def dealCardsToComputer():
