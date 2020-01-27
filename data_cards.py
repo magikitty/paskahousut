@@ -19,16 +19,16 @@ def getAllCards():
     return doc.read()
 
 
-def getCardNumber(cardNumber):
+def getCardAtIndex(cardIndex):
     doc = open(DATA_DECK, "r")
     all_lines = doc.readlines()
-    return all_lines[cardNumber].strip("\n")
+    return all_lines[cardIndex].strip("\n")
 
 
 def getRandomCard():
     max_number = countCardsInDeck()
     random_number = random.randint(0, max_number - 1)
-    random_card = getCardNumber(random_number)
+    random_card = getCardAtIndex(random_number)
     return random_card
 
 
@@ -37,7 +37,7 @@ def countCardsInDeck():
     return amountCards
 
 
-def dealCardsToPlayer():
+def dealCardToPlayer():
     card = getRandomCard()
     print("dealt card: " + card)
     data_read_write.writeToFile(card, HAND_PLAYER)
@@ -56,7 +56,7 @@ def removeCardFromDeck(card):
             new_deck.write(line)
 
 
-def dealCardsToComputer():
+def dealCardToComputer():
     card = getRandomCard()
     data_read_write.writeToFile(card, HAND_COMPUTER)
-    # add functionality to remove card after it is dealt from deck
+    removeCardFromDeck(card)
