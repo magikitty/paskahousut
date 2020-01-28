@@ -73,7 +73,6 @@ def testCanDeal(docHandToDealTo):
         print("This person can be dealt a card")
     else:
         can_deal = False
-        print("!!! This person CANNOT be dealt a card")
     return can_deal
 
 
