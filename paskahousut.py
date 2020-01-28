@@ -2,6 +2,7 @@
 import random
 import data_cards
 import data_player_name
+import data_read_write
 
 # Welcome message for player
 WELCOME_MESSAGE = "This is a simple game of Paskahousut. Get ready to play!"
@@ -10,7 +11,7 @@ WELCOME_MESSAGE = "This is a simple game of Paskahousut. Get ready to play!"
 def welcomePlayer():
     print(WELCOME_MESSAGE)
     GetSaveName()
-    print("Hello " + data_player_name.getPlayerName() + "!")
+    print("Hello " + data_player_name.getPlayerName() + "!\n")
 
 
 # Gets the player's name
@@ -40,7 +41,23 @@ def GameLoop(player_first):
         if player_first == True:
             PlayerTurn()
             ComputerTurn()
+            PlayerTurn()
+            ComputerTurn()
+            PlayerTurn()
+            ComputerTurn()
+            PlayerTurn()
+            ComputerTurn()
+            PlayerTurn()
+            ComputerTurn()
         elif player_first == False:
+            ComputerTurn()
+            PlayerTurn()
+            ComputerTurn()
+            PlayerTurn()
+            ComputerTurn()
+            PlayerTurn()
+            ComputerTurn()
+            PlayerTurn()
             ComputerTurn()
             PlayerTurn()
         break   # debugging
@@ -52,15 +69,19 @@ def GameLoop(player_first):
 # PlayerTurn starts player's turn
 def PlayerTurn():
     print("It's the player's turn!")
+    data_cards.dealCardToPlayer()
 
 
 # ComputerTurn starts computer's turn
 def ComputerTurn():
     print("It's the computer's turn!")
+    data_cards.dealCardToComputer()
 
 
 # Game() calls the functions that make the game run
 def Game():
+    data_read_write.clearFile("data_mutable/player_hand.txt")
+    data_read_write.clearFile("data_mutable/computer_hand.txt")
     data_cards.populateDeck()
     welcomePlayer()
     player_first = SetFirstPlayer()
