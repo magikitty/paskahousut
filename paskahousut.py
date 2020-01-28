@@ -5,7 +5,12 @@ import data_player_name
 
 # Welcome message for player
 WELCOME_MESSAGE = "This is a simple game of Paskahousut. Get ready to play!"
-print(WELCOME_MESSAGE)
+
+
+def welcomePlayer():
+    print(WELCOME_MESSAGE)
+    GetSaveName()
+    print("Hello " + data_player_name.getPlayerName() + "!")
 
 
 # Gets the player's name
@@ -57,8 +62,7 @@ def ComputerTurn():
 # Game() calls the functions that make the game run
 def Game():
     data_cards.populateDeck()
-    GetSaveName()
-    print("Hello " + data_player_name.getPlayerName() + "!")
+    welcomePlayer()
     player_first = SetFirstPlayer()
     GameLoop(player_first)
 
