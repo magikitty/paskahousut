@@ -37,7 +37,6 @@ def countCardsInDeck():
     return amountCards
 
 
-# TODO: File data persistent, need to clear when a new game starts
 def dealCardToPlayer():
     if testCanDeal(HAND_PLAYER) == True:
         card = getRandomCard()
@@ -76,3 +75,12 @@ def testCanDeal(docHandToDealTo):
         can_deal = False
         print("!!! This person CANNOT be dealt a card")
     return can_deal
+
+
+def displayHand(docHandToDisplay):
+    cards_in_hand = data_read_write.readFromFile(docHandToDisplay)
+    print("Here are your cards:\n" + cards_in_hand)
+
+
+def displayPlayerHand():
+    displayHand(HAND_PLAYER)
