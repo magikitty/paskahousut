@@ -39,25 +39,11 @@ def GameLoop(player_first):
     while game_over == False:
         print("The game is not over!") # debugging
         if player_first == True:
-            PlayerTurn()
+            for _ in range(0, 6):
             ComputerTurn()
             PlayerTurn()
-            ComputerTurn()
-            PlayerTurn()
-            ComputerTurn()
-            PlayerTurn()
-            ComputerTurn()
-            PlayerTurn()
-            ComputerTurn()
         elif player_first == False:
-            ComputerTurn()
-            PlayerTurn()
-            ComputerTurn()
-            PlayerTurn()
-            ComputerTurn()
-            PlayerTurn()
-            ComputerTurn()
-            PlayerTurn()
+            for _ in range(0, 6):
             ComputerTurn()
             PlayerTurn()
         break   # debugging
