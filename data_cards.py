@@ -37,11 +37,14 @@ def countCardsInDeck():
     return amountCards
 
 
+# TODO: File data persistent, need to clear when a new game starts
 def dealCardToPlayer():
-    card = getRandomCard()
-    print("dealt card: " + card)
-    data_read_write.writeToFile(card, HAND_PLAYER)
-    removeCardFromDeck(card)
+    if testCanDealPlayer() == True:
+        card = getRandomCard()
+        print("dealt card to player: " + card)
+        # data_read_write.writeToFile(card, HAND_PLAYER)
+        data_read_write.addToFile(card + "\n", HAND_PLAYER)
+        removeCardFromDeck(card)
 
 
 def removeCardFromDeck(card):
@@ -56,7 +59,19 @@ def removeCardFromDeck(card):
             new_deck.write(line)
 
 
+def testCanDealPlayer():
+    amount_cards = data_read_write.countContent(COUNTER_CARDS, HAND_PLAYER)
+    if amount_cards < 3:
+        can_deal_player = True
+        print("The player can be dealt a card")
+    else:
+        can_deal_player = False
+        print("The player cannot be dealt a card")
+    return can_deal_player
+
+
 def dealCardToComputer():
     card = getRandomCard()
+    print("dealt card to computer: " + card)
     data_read_write.writeToFile(card, HAND_COMPUTER)
     removeCardFromDeck(card)
