@@ -40,12 +40,12 @@ def GameLoop(player_first):
         print("The game is not over!") # debugging
         if player_first == True:
             for _ in range(0, 6):
-            ComputerTurn()
-            PlayerTurn()
+                ComputerTurn()
+                PlayerTurn()
         elif player_first == False:
             for _ in range(0, 6):
-            ComputerTurn()
-            PlayerTurn()
+                ComputerTurn()
+                PlayerTurn()
         break   # debugging
     
     game_over = True
@@ -55,6 +55,7 @@ def GameLoop(player_first):
 # PlayerTurn starts player's turn
 def PlayerTurn():
     print("It's the player's turn!")
+    data_cards.displayPlayerHand()
     data_cards.dealCardToPlayer()
 
 
