@@ -10,6 +10,11 @@ def readFromFile(fileToReadFrom):
     return doc.read()
 
 
+def addToFile(content, fileToAddTo):
+    doc = open(fileToAddTo, "a")
+    doc.write(content)
+
+
 def countContent(contentToCount, fileToCountFrom):
     allContent = readFromFile(fileToCountFrom)
     return allContent.count(contentToCount)
