@@ -39,11 +39,19 @@ def countCardsInDeck():
 
 # TODO: File data persistent, need to clear when a new game starts
 def dealCardToPlayer():
-    if testCanDealPlayer() == True:
+    if testCanDeal(HAND_PLAYER) == True:
         card = getRandomCard()
-        print("dealt card to player: " + card)
+        print("*** Dealt card to player: " + card)
         # data_read_write.writeToFile(card, HAND_PLAYER)
         data_read_write.addToFile(card + "\n", HAND_PLAYER)
+        removeCardFromDeck(card)
+
+
+def dealCardToComputer():
+    if testCanDeal(HAND_COMPUTER) == True:
+        card = getRandomCard()
+        print("~~~ Dealt card to computer: " + card)
+        data_read_write.addToFile(card + "\n", HAND_COMPUTER)
         removeCardFromDeck(card)
 
 
@@ -59,19 +67,12 @@ def removeCardFromDeck(card):
             new_deck.write(line)
 
 
-def testCanDealPlayer():
-    amount_cards = data_read_write.countContent(COUNTER_CARDS, HAND_PLAYER)
+def testCanDeal(docHandToDealTo):
+    amount_cards = data_read_write.countContent(COUNTER_CARDS, docHandToDealTo)
     if amount_cards < 3:
-        can_deal_player = True
-        print("The player can be dealt a card")
+        can_deal = True
+        print("This person can be dealt a card")
     else:
-        can_deal_player = False
-        print("The player cannot be dealt a card")
-    return can_deal_player
-
-
-def dealCardToComputer():
-    card = getRandomCard()
-    print("dealt card to computer: " + card)
-    data_read_write.writeToFile(card, HAND_COMPUTER)
-    removeCardFromDeck(card)
+        can_deal = False
+        print("!!! This person CANNOT be dealt a card")
+    return can_deal
