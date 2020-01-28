@@ -18,3 +18,8 @@ def addToFile(content, fileToAddTo):
 def countContent(contentToCount, fileToCountFrom):
     allContent = readFromFile(fileToCountFrom)
     return allContent.count(contentToCount)
+
+
+def clearFile(docToClear):
+    doc = open(docToClear, "w")
+    doc.write("")
