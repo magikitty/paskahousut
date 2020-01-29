@@ -3,6 +3,7 @@ import random
 import data_cards
 import data_player_name
 import data_read_write
+import player_interaction
 
 # Welcome message for player
 WELCOME_MESSAGE = "This is a simple game of Paskahousut. Get ready to play!"
@@ -55,7 +56,7 @@ def GameLoop(player_first):
 # PlayerTurn starts player's turn
 def PlayerTurn():
     print("It's the player's turn!")
-    data_cards.displayPlayerHand()
+    player_interaction.displayPlayerHand()
     data_cards.dealCardToPlayer()
 
 
@@ -77,3 +78,4 @@ def Game():
 
 # Entry point function
 Game()
+# player_interaction.getInput()
