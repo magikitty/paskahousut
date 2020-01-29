@@ -12,3 +12,22 @@ def displayHand(docHandToDisplay):
 
 def displayPlayerHand():
     displayHand(HAND_PLAYER)
+
+
+def getInput():
+    while True:
+        print("Press P to play a card from your hand.\n" +
+        "Press D to draw a card and immediately play it.\n" +
+        "Press I to pick up all cards in the pile.")
+        char = readchar.readchar().lower()
+        if char == "p":
+            print("You are playing a card from your hand")
+        elif char == "d":
+            print("You are drawing a card and playing it")
+        elif char == "i":
+            print("You are picking up all the cards in the pile")
+        else:
+            print("Please press one of the specified keys")   # why is this called??
+        break
+    print("Pressed key: " + char)
+    return(char)
