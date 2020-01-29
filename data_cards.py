@@ -74,12 +74,3 @@ def testCanDeal(docHandToDealTo):
     else:
         can_deal = False
     return can_deal
-
-
-def displayHand(docHandToDisplay):
-    cards_in_hand = data_read_write.readFromFile(docHandToDisplay)
-    print("Here are your cards:\n" + cards_in_hand)
-
-
-def displayPlayerHand():
-    displayHand(HAND_PLAYER)
