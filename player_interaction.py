@@ -3,6 +3,9 @@ import readchar
 
 HAND_PLAYER = "data_mutable/player_hand.txt"
 HAND_COMPUTER = "data_mutable/computer_hand.txt"
+INSTRUCTIONS_INTERACTION = ("Press P to play a card from your hand.\n" +
+    "Press D to draw a card and immediately play it.\n" +
+    "Press I to pick up all cards in the pile.")
 
 
 def displayHand(docHandToDisplay):
@@ -16,9 +19,7 @@ def displayPlayerHand():
 
 def getInput():
     while True:
-        print("Press P to play a card from your hand.\n" +
-        "Press D to draw a card and immediately play it.\n" +
-        "Press I to pick up all cards in the pile.")
+        print(INSTRUCTIONS_INTERACTION)
         char = readchar.readchar().lower()
         if char == "p":
             print("You are playing a card from your hand")
