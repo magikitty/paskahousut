@@ -66,11 +66,27 @@ def processPlayerTurn():
     playerAction(getInput())
 
 
+def playCard():
+    card_list = (data_read_write.readFromFile(HAND_PLAYER).split("\n"))
+    print("The original list is:", card_list)              # debugging  
+    print("The new tidy list is:", tidyList(card_list))    # debugging
+
+
+def tidyList(list_to_tidy):
+    clean_list = []
+    for i in range(0, len(list_to_tidy)):
+        if len(list_to_tidy[i]) > 0:
+            clean_list.append(list_to_tidy[i])
+    return clean_list
+
+
 def drawCardAndPlay():
     card = data_cards.getRandomCard()
     data_cards.removeCardFromDeck(card)
     print(MESSAGE_DRAW_CARD + card)
-    # Need to check from rules if can play card, if cannot play card then have to call pickUpAllCardsInPile()
+    # Check from rules if can play card
+    # If can, play card
+    # Else call pickUpAllCardsInPile()
     data_read_write.addToFile(card + "\n", PILE_CARDS)
 
 
@@ -78,3 +94,9 @@ def pickUpAllCardsInPile():
     cards_in_pile = data_read_write.readFromFile(PILE_CARDS)
     data_read_write.addToFile("\n" + cards_in_pile, HAND_PLAYER)
     data_read_write.clearFile(PILE_CARDS)
+
+
+# Strip trailing whitespace from player hand
+    # stripped_data = data_read_write.readFromFile(HAND_PLAYER).strip()
+    # data_read_write.writeToFile(stripped_data, HAND_PLAYER)
+    # # print((data_read_write.readFromFile(HAND_PLAYER)).strip())
