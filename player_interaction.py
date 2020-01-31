@@ -1,4 +1,5 @@
 import data_read_write
+import data_cards
 # import readchar
 import getch
 
@@ -16,6 +17,7 @@ MESSAGE_SHOW_HAND = "\nHere are your cards:\n"
 MESSAGE_PLAY_CARD = "You are playing a card from your hand"
 MESSAGE_DRAW_PLAY = "You are drawing a card and playing it"
 MESSAGE_PICK_PILE = "You are picking up all the cards in the pile"
+MESSAGE_DRAW_CARD = "The card you have drawn is: "
 
 
 def displayHand(docHandToDisplay):
@@ -64,6 +66,15 @@ def processPlayerTurn():
     playerAction(getInput())
 
 
+def drawCardAndPlay():
+    card = data_cards.getRandomCard()
+    data_cards.removeCardFromDeck(card)
+    print(MESSAGE_DRAW_CARD + card)
+    # Need to check from rules if can play card, if cannot play card then have to call pickUpAllCardsInPile()
+    data_read_write.addToFile(card + "\n", PILE_CARDS)
+
+
 def pickUpAllCardsInPile():
     cards_in_pile = data_read_write.readFromFile(PILE_CARDS)
     data_read_write.addToFile("\n" + cards_in_pile, HAND_PLAYER)
+    data_read_write.clearFile(PILE_CARDS)
