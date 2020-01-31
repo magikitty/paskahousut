@@ -4,6 +4,8 @@ import getch
 
 HAND_PLAYER = "data_mutable/player_hand.txt"
 HAND_COMPUTER = "data_mutable/computer_hand.txt"
+PILE_CARDS = "data_mutable/cards_in_pile.txt"
+
 INSTRUCTIONS_INTERACTION = (
     "Press S to show cards in your hand.\n"
     "Press P to play a card from your hand.\n" +
@@ -60,3 +62,8 @@ def playerAction(char):
 
 def processPlayerTurn():
     playerAction(getInput())
+
+
+def pickUpAllCardsInPile():
+    cards_in_pile = data_read_write.readFromFile(PILE_CARDS)
+    data_read_write.addToFile("\n" + cards_in_pile, HAND_PLAYER)
