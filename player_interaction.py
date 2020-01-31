@@ -1,5 +1,6 @@
 import data_read_write
-import readchar
+# import readchar
+import getch
 
 HAND_PLAYER = "data_mutable/player_hand.txt"
 HAND_COMPUTER = "data_mutable/computer_hand.txt"
@@ -9,36 +10,52 @@ INSTRUCTIONS_INTERACTION = (
     "Press D to draw a card and immediately play it.\n" +
     "Press I to pick up all cards in the pile."
     )
+MESSAGE_SHOW_HAND = "\nHere are your cards:\n"
+MESSAGE_PLAY_CARD = "You are playing a card from your hand"
+MESSAGE_DRAW_PLAY = "You are drawing a card and playing it"
+MESSAGE_PICK_PILE = "You are picking up all the cards in the pile"
 
 
 def displayHand(docHandToDisplay):
     cards_in_hand = data_read_write.readFromFile(docHandToDisplay)
-    print("Here are your cards:\n" + cards_in_hand)
+    print(MESSAGE_SHOW_HAND + cards_in_hand)
 
 
 def displayPlayerHand():
     displayHand(HAND_PLAYER)
 
 
+# PROBLEM: pressing the wrong key skips the player's turn
 def getInput():
     print(INSTRUCTIONS_INTERACTION)
     char = ""
 
     while char != "s" or "p" or "d" or "i":
-        char = readchar.readchar().lower() 
+        char = getch.getch()
         if char == "s" or "p" or "d" or "i":
             return char
+
+
+# Using readchar
+# def getInput():
+#     print(INSTRUCTIONS_INTERACTION)
+#     char = ""
+
+#     while char != "s" or "p" or "d" or "i":
+#         char = readchar.readchar().lower() 
+#         if char == "s" or "p" or "d" or "i":
+#             return char
 
 
 def playerAction(char):
     if char == "s":
         displayPlayerHand()
     elif char == "p":
-        print("You are playing a card from your hand")
+        print(MESSAGE_PLAY_CARD)
     elif char == "d":
-        print("You are drawing a card and playing it")
+        print(MESSAGE_DRAW_PLAY)
     elif char == "i":
-        print("You are picking up all the cards in the pile")
+        print(MESSAGE_PICK_PILE)
 
 
 def processPlayerTurn():
