@@ -4,20 +4,26 @@ import data_cards
 import data_player_name
 import data_read_write
 import player_interaction
+import test
 
-# Welcome message for player
-WELCOME_MESSAGE = "This is a simple game of Paskahousut. Get ready to play!"
+MESSAGE_WELCOME = "This is a simple game of Paskahousut. Get ready to play!"
+MESSAGE_ENTER_NAME = "Enter your name: "
+MESSAGE_PLAYER_TURN = "It's the player's turn!"
+MESSAGE_COMPUTER_TURN = "It's the computer's turn!"
+
+HAND_PLAYER = "data_mutable/player_hand.txt"
+HAND_COMPUTER = "data_mutable/computer_hand.txt"
 
 
 def welcomePlayer():
-    print(WELCOME_MESSAGE)
+    print(MESSAGE_WELCOME)
     GetSaveName()
     print("Hello " + data_player_name.getPlayerName() + "!\n")
 
 
 # Gets the player's name
 def GetSaveName():
-    player_name = input("Enter your name: ")
+    player_name = input(MESSAGE_ENTER_NAME)
     data_player_name.setPlayerName(player_name)
 
 
@@ -55,21 +61,22 @@ def GameLoop(player_first):
 
 # PlayerTurn starts player's turn
 def PlayerTurn():
-    print("It's the player's turn!")
+    print(MESSAGE_PLAYER_TURN)
     player_interaction.displayPlayerHand()
     data_cards.dealCardToPlayer()
+    player_interaction.processPlayerTurn()
 
 
 # ComputerTurn starts computer's turn
 def ComputerTurn():
-    print("It's the computer's turn!")
+    print(MESSAGE_COMPUTER_TURN)
     data_cards.dealCardToComputer()
 
 
 # Game() calls the functions that make the game run
 def Game():
-    data_read_write.clearFile("data_mutable/player_hand.txt")
-    data_read_write.clearFile("data_mutable/computer_hand.txt")
+    data_read_write.clearFile(HAND_PLAYER)
+    data_read_write.clearFile(HAND_COMPUTER)
     data_cards.populateDeck()
     welcomePlayer()
     player_first = SetFirstPlayer()
@@ -78,4 +85,4 @@ def Game():
 
 # Entry point function
 Game()
-# player_interaction.getInput()
+
