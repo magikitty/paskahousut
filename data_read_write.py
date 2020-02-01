@@ -1,3 +1,4 @@
+from pathlib import Path
 
 
 def writeToFile(content, fileToWriteTo):
@@ -23,3 +24,17 @@ def countContent(contentToCount, fileToCountFrom):
 def clearFile(docToClear):
     doc = open(docToClear, "w")
     doc.write("")
+
+
+def ensureDirectoryExists(directoryPath):
+    directory_exists = Path(directoryPath).exists()
+
+    if directory_exists == False:
+        Path(directoryPath).mkdir()
+
+
+def ensureFileExists(filePath):
+    file_exists = Path(filePath).exists()
+
+    if file_exists == False:
+        writeToFile("", filePath)
