@@ -15,6 +15,15 @@ HAND_PLAYER = "data_mutable/player_hand.txt"
 HAND_COMPUTER = "data_mutable/computer_hand.txt"
 
 
+def ensureMutableDataExists():
+    data_read_write.ensureDirectoryExists("data_mutable")
+    data_read_write.ensureFileExists("data_mutable/cards_in_deck.txt")
+    data_read_write.ensureFileExists("data_mutable/cards_in_pile.txt")
+    data_read_write.ensureFileExists("data_mutable/computer_hand.txt")
+    data_read_write.ensureFileExists("data_mutable/player_hand.txt")
+    data_read_write.ensureFileExists("data_mutable/player_name.txt")
+
+
 def welcomePlayer():
     print(MESSAGE_WELCOME)
     GetSaveName()
@@ -75,6 +84,7 @@ def ComputerTurn():
 
 # Game() calls the functions that make the game run
 def Game():
+    ensureMutableDataExists()
     data_read_write.clearFile(HAND_PLAYER)
     data_read_write.clearFile(HAND_COMPUTER)
     data_cards.populateDeck()
@@ -84,5 +94,4 @@ def Game():
 
 
 # Entry point function
-Game()
-
+# Game()
