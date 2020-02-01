@@ -1,6 +1,6 @@
 import data_read_write
 import data_cards
-# import readchar
+import readchar
 import getch
 
 HAND_PLAYER = "data_mutable/player_hand.txt"
@@ -30,25 +30,26 @@ def displayPlayerHand():
 
 
 # PROBLEM: pressing the wrong key skips the player's turn
-def getInput():
-    print(INSTRUCTIONS_INTERACTION)
-    char = ""
-
-    while char != "s" or "p" or "d" or "i":
-        char = getch.getch()
-        if char == "s" or "p" or "d" or "i":
-            return char
-
-
-# Using readchar
 # def getInput():
 #     print(INSTRUCTIONS_INTERACTION)
 #     char = ""
 
 #     while char != "s" or "p" or "d" or "i":
-#         char = readchar.readchar().lower() 
+#         char = getch.getch()
 #         if char == "s" or "p" or "d" or "i":
 #             return char
+
+
+# Using readchar
+def getInput():
+    print(INSTRUCTIONS_INTERACTION)
+    char = ""
+    charValid = False
+
+    while charValid == False:
+        char = readchar.readchar().lower()
+        if char == "s" or char == "p" or char == "d" or char == "i":
+            return char
 
 
 def playerAction(char):
