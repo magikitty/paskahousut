@@ -74,3 +74,11 @@ def testCanDeal(docHandToDealTo):
     else:
         can_deal = False
     return can_deal
+
+
+def tidyList(list_to_tidy):
+    clean_list = []
+    for i in range(0, len(list_to_tidy)):
+        if len(list_to_tidy[i]) > 0:
+            clean_list.append(list_to_tidy[i])
+    return clean_list
