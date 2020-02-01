@@ -20,14 +20,10 @@ MESSAGE_PICK_PILE = "You are picking up all the cards in the pile"
 MESSAGE_DRAW_CARD = "The card you have drawn is: "
 
 
-def displayHand(docHandToDisplay):
-    cards_in_hand = data_read_write.readFromFile(docHandToDisplay)
-    print(MESSAGE_SHOW_HAND + cards_in_hand)
-
-
 def displayPlayerHand():
-    displayHand(HAND_PLAYER)
-
+    cards_in_hand = data_read_write.readFromFile(HAND_PLAYER)
+    print(MESSAGE_SHOW_HAND + cards_in_hand)
+    
 
 # PROBLEM: pressing the wrong key skips the player's turn
 # def getInput():
