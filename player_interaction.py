@@ -67,18 +67,18 @@ def processPlayerTurn():
     playerAction(getInput())
 
 
+# adding line numbers to cards
+def numberedCardList(cards_to_number):
+    for i in range(0, len(cards_to_number)):
+        num = i + 1
+        print(str(num) + ".", cards_to_number[i])
+
+
 def playCard():
     card_list = (data_read_write.readFromFile(HAND_PLAYER).split("\n"))
     print("The original list is:", card_list)              # debugging  
-    print("The new tidy list is:", tidyList(card_list))    # debugging
-
-
-def tidyList(list_to_tidy):
-    clean_list = []
-    for i in range(0, len(list_to_tidy)):
-        if len(list_to_tidy[i]) > 0:
-            clean_list.append(list_to_tidy[i])
-    return clean_list
+    print("The new tidy list is:", data_cards.tidyList(card_list))    # debugging
+    numberedCardList(data_cards.tidyList(card_list))
 
 
 def drawCardAndPlay():
