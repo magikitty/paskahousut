@@ -15,6 +15,7 @@ MESSAGE_PLAYER_TURN = "It's the player's turn!"
 MESSAGE_COMPUTER_TURN = "It's the computer's turn!"
 
 MESSAGE_INSTRUCTIONS_INTERACTION = (
+    "\n"
     "Press S to show cards in your hand.\n"
     "Press P to play a card from your hand.\n" +
     "Press D to draw a card and immediately play it.\n" +

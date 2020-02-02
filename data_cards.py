@@ -35,7 +35,6 @@ def dealCardToPlayer():
     if testCanDeal(constants.HAND_PLAYER) == True:
         card = getRandomCard()
         print("*** Dealt card to player: " + card)
-        # data_read_write.writeToFile(card, constants.HAND_PLAYER)
         data_read_write.addToFile(card + "\n", constants.HAND_PLAYER)
         removeCardFromDeck(card)
 
@@ -64,7 +63,7 @@ def testCanDeal(docHandToDealTo):
     amount_cards = data_read_write.countContent(constants.COUNTER_CARDS, docHandToDealTo)
     if amount_cards < 3:
         can_deal = True
-        print("This person can be dealt a card")
+        # print("This person can be dealt a card")  # debugging
     else:
         can_deal = False
     return can_deal
