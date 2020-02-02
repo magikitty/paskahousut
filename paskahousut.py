@@ -5,14 +5,7 @@ import data_player_name
 import data_read_write
 import player_interaction
 import test
-
-MESSAGE_WELCOME = "This is a simple game of Paskahousut. Get ready to play!"
-MESSAGE_ENTER_NAME = "Enter your name: "
-MESSAGE_PLAYER_TURN = "It's the player's turn!"
-MESSAGE_COMPUTER_TURN = "It's the computer's turn!"
-
-HAND_PLAYER = "data_mutable/player_hand.txt"
-HAND_COMPUTER = "data_mutable/computer_hand.txt"
+import constants
 
 
 def ensureMutableDataExists():
@@ -25,14 +18,14 @@ def ensureMutableDataExists():
 
 
 def welcomePlayer():
-    print(MESSAGE_WELCOME)
+    print(constants.MESSAGE_WELCOME)
     GetSaveName()
     print("Hello " + data_player_name.getPlayerName() + "!\n")
 
 
 # Gets the player's name
 def GetSaveName():
-    player_name = input(MESSAGE_ENTER_NAME)
+    player_name = input(constants.MESSAGE_ENTER_NAME)
     data_player_name.setPlayerName(player_name)
 
 
@@ -70,23 +63,23 @@ def GameLoop(player_first):
 
 # PlayerTurn starts player's turn
 def PlayerTurn():
-    print(MESSAGE_PLAYER_TURN)
-    player_interaction.displayPlayerHand()
+    print(constants.MESSAGE_PLAYER_TURN)
     data_cards.dealCardToPlayer()
+    player_interaction.displayPlayerHand()
     player_interaction.processPlayerTurn()
 
 
 # ComputerTurn starts computer's turn
 def ComputerTurn():
-    print(MESSAGE_COMPUTER_TURN)
+    print(constants.MESSAGE_COMPUTER_TURN)
     data_cards.dealCardToComputer()
 
 
 # Game() calls the functions that make the game run
 def Game():
     ensureMutableDataExists()
-    data_read_write.clearFile(HAND_PLAYER)
-    data_read_write.clearFile(HAND_COMPUTER)
+    data_read_write.clearFile(constants.HAND_PLAYER)
+    data_read_write.clearFile(constants.HAND_COMPUTER)
     data_cards.populateDeck()
     welcomePlayer()
     player_first = SetFirstPlayer()
@@ -94,4 +87,4 @@ def Game():
 
 
 # Entry point function
-# Game()
+Game()

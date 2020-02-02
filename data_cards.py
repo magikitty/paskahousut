@@ -1,26 +1,20 @@
 import data_read_write
 import data_mutable
 import random
-
-DATA_ALL_CARDS = "data_immutable/all_cards.txt"
-DATA_DECK = "data_mutable/cards_in_deck.txt"
-COUNTER_CARDS = "of"
-HAND_PLAYER = "data_mutable/player_hand.txt"
-HAND_COMPUTER = "data_mutable/computer_hand.txt"
-
+import constants
 
 # Copy cards from all_cards.txt to cards_in_deck.txt to populate the deck
 def populateDeck():
-    data_read_write.writeToFile(getAllCards(), DATA_DECK)
+    data_read_write.writeToFile(getAllCards(), constants.DATA_DECK)
 
 
 def getAllCards():
-    doc = open(DATA_ALL_CARDS, "r")
+    doc = open(constants.DATA_ALL_CARDS, "r")
     return doc.read()
 
 
 def getCardAtIndex(cardIndex):
-    doc = open(DATA_DECK, "r")
+    doc = open(constants.DATA_DECK, "r")
     all_lines = doc.readlines()
     return all_lines[cardIndex].strip("\n")
 
@@ -33,41 +27,41 @@ def getRandomCard():
 
 
 def countCardsInDeck():
-    amountCards = data_read_write.countContent(COUNTER_CARDS, DATA_DECK)
+    amountCards = data_read_write.countContent(constants.COUNTER_CARDS, constants.DATA_DECK)
     return amountCards
 
 
 def dealCardToPlayer():
-    if testCanDeal(HAND_PLAYER) == True:
+    if testCanDeal(constants.HAND_PLAYER) == True:
         card = getRandomCard()
         print("*** Dealt card to player: " + card)
-        # data_read_write.writeToFile(card, HAND_PLAYER)
-        data_read_write.addToFile(card + "\n", HAND_PLAYER)
+        # data_read_write.writeToFile(card, constants.HAND_PLAYER)
+        data_read_write.addToFile(card + "\n", constants.HAND_PLAYER)
         removeCardFromDeck(card)
 
 
 def dealCardToComputer():
-    if testCanDeal(HAND_COMPUTER) == True:
+    if testCanDeal(constants.HAND_COMPUTER) == True:
         card = getRandomCard()
         print("~~~ Dealt card to computer: " + card)
-        data_read_write.addToFile(card + "\n", HAND_COMPUTER)
+        data_read_write.addToFile(card + "\n", constants.HAND_COMPUTER)
         removeCardFromDeck(card)
 
 
 def removeCardFromDeck(card):
-    deck = open(DATA_DECK, "r")
+    deck = open(constants.DATA_DECK, "r")
     cards_in_deck = deck.readlines()
 
-    data_read_write.writeToFile("", DATA_DECK)
+    data_read_write.writeToFile("", constants.DATA_DECK)
 
     for line in cards_in_deck:
         if card not in line:
-            new_deck = open(DATA_DECK, "a")
+            new_deck = open(constants.DATA_DECK, "a")
             new_deck.write(line)
 
 
 def testCanDeal(docHandToDealTo):
-    amount_cards = data_read_write.countContent(COUNTER_CARDS, docHandToDealTo)
+    amount_cards = data_read_write.countContent(constants.COUNTER_CARDS, docHandToDealTo)
     if amount_cards < 3:
         can_deal = True
         print("This person can be dealt a card")
