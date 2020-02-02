@@ -39,13 +39,13 @@ def pickUpAllCardsInPile():
 
 def getInput():
     print(constants.MESSAGE_INSTRUCTIONS_INTERACTION)
-    char = ""
-    charValid = False
 
-    while charValid == False:
-        char = readchar.readchar().lower()
-        if char == "s" or char == "p" or char == "d" or char == "i":
-            return char
+    player_command_valid = False
+
+    while player_command_valid == False: 
+        player_command = input("What do you want to do? ").lower()
+        if player_command == "s" or player_command == "p" or player_command == "d" or player_command == "i":
+            return player_command
 
 
 def playerAction(char):
