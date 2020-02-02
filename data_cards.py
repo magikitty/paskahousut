@@ -59,6 +59,18 @@ def removeCardFromDeck(card):
             new_deck.write(line)
 
 
+def removeCardFromPlayerHand(card):
+    hand_player = open(constants.HAND_PLAYER, "r")
+    cards_in_hand = hand_player.readlines()
+
+    data_read_write.writeToFile("", constants.HAND_PLAYER)
+
+    for line in cards_in_hand:
+        if card not in line:
+            new_hand_player = open(constants.HAND_PLAYER, "a")
+            new_hand_player.write(line)
+
+
 def testCanDeal(docHandToDealTo):
     amount_cards = data_read_write.countContent(constants.COUNTER_CARDS, docHandToDealTo)
     if amount_cards < 3:
