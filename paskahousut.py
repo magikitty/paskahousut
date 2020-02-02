@@ -4,7 +4,6 @@ import data_cards
 import data_player_name
 import data_read_write
 import player_interaction
-import test
 import constants
 
 
@@ -46,7 +45,7 @@ def GameLoop(player_first):
     game_over = False
 
     while game_over == False:
-        print("The game is not over!") # debugging
+        # print("The game is not over!") # debugging
         if player_first == True:
             for _ in range(0, 6):
                 ComputerTurn()
@@ -65,7 +64,7 @@ def GameLoop(player_first):
 def PlayerTurn():
     print(constants.MESSAGE_PLAYER_TURN)
     data_cards.dealCardToPlayer()
-    player_interaction.displayPlayerHand()
+    player_interaction.displayPlayerHandNumbered()
     player_interaction.processPlayerTurn()
 
 
