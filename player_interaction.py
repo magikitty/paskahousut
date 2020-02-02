@@ -1,27 +1,14 @@
 import data_read_write
 import data_cards
 import readchar
-import getch
 import constants
 
 
 def displayPlayerHand():
     cards_in_hand = data_read_write.readFromFile(constants.HAND_PLAYER)
     print(constants.MESSAGE_SHOW_HAND + cards_in_hand)
-    
-
-# PROBLEM: pressing the wrong key skips the player's turn
-# def getInput():
-#     print(INSTRUCTIONS_INTERACTION)
-#     char = ""
-
-#     while char != "s" or "p" or "d" or "i":
-#         char = getch.getch()
-#         if char == "s" or "p" or "d" or "i":
-#             return char
 
 
-# Using readchar
 def getInput():
     print(constants.MESSAGE_INSTRUCTIONS_INTERACTION)
     char = ""
