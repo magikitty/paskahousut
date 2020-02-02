@@ -4,11 +4,6 @@ import readchar
 import constants
 
 
-def displayPlayerHand():
-    cards_in_hand = data_read_write.readFromFile(constants.HAND_PLAYER)
-    print(constants.MESSAGE_SHOW_HAND + cards_in_hand)
-
-
 def getInput():
     print(constants.MESSAGE_INSTRUCTIONS_INTERACTION)
     char = ""
@@ -22,7 +17,7 @@ def getInput():
 
 def playerAction(char):
     if char == "s":
-        displayPlayerHand()
+        displayNumberedCards()
     elif char == "p":
         print(constants.MESSAGE_PLAY_CARD)
     elif char == "d":
@@ -42,11 +37,14 @@ def numberedCardList(cards_to_number):
         print(str(num) + ".", cards_to_number[i])
 
 
-def playCard():
+def displayNumberedCards():
+    print(constants.MESSAGE_SHOW_HAND)
     card_list = (data_read_write.readFromFile(constants.HAND_PLAYER).split("\n"))
-    print("The original list is:", card_list)              # debugging  
-    print("The new tidy list is:", data_cards.tidyList(card_list))    # debugging
     numberedCardList(data_cards.tidyList(card_list))
+
+
+def playCard():
+    displayNumberedCards()
 
 
 def drawCardAndPlay():
