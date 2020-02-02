@@ -11,14 +11,39 @@ def numberedCardList(cards_to_number):
         print(str(num) + ".", cards_to_number[i])
 
 
+def cardListPlayer():
+    card_list = (data_read_write.readFromFile(constants.HAND_PLAYER).split("\n"))
+    return data_cards.tidyList(card_list) 
+
+
 def displayPlayerHandNumbered():
     print(constants.MESSAGE_SHOW_HAND)
-    card_list = (data_read_write.readFromFile(constants.HAND_PLAYER).split("\n"))
-    numberedCardList(data_cards.tidyList(card_list))
+    # card_list = (data_read_write.readFromFile(constants.HAND_PLAYER).split("\n"))
+    numberedCardList(data_cards.tidyList(cardListPlayer()))
+
+
+def getInputCard():
+    player_cards = cardListPlayer()
+    card_number_valid = False
+
+    while card_number_valid == False: 
+        card_number = int(input("\nEnter number of card you want to play: "))
+        if 0 < card_number <= len(player_cards):
+            card_played = player_cards[card_number - 1]
+            print("You play the card:", card_played)
+            return card_played
+            # card_index = card_number - 1
+            # print("card at index", card_index)
+            # return card_index
 
 
 def playCard():
     displayPlayerHandNumbered()
+    card = getInputCard()
+    data_cards.removeCardFromPlayerHand(card)
+    print("Here is the new list of cards")
+    displayPlayerHandNumbered()
+    data_read_write.addToFile(card + "\n", constants.PILE_CARDS)
 
 
 def drawCardAndPlay():
@@ -37,32 +62,32 @@ def pickUpAllCardsInPile():
     data_read_write.clearFile(constants.PILE_CARDS)
 
 
-def getInput():
+def getInputAction():
     print(constants.MESSAGE_INSTRUCTIONS_INTERACTION)
 
     player_command_valid = False
 
     while player_command_valid == False: 
-        player_command = input("What do you want to do? ").lower()
+        player_command = input("\nWhat do you want to do? ").lower()
         if player_command == "s" or player_command == "p" or player_command == "d" or player_command == "i":
             return player_command
 
 
-def playerAction(char):
-    if char == "s":
+def playerAction(player_command):
+    if player_command == "s":
         displayPlayerHandNumbered()
-    elif char == "p":
+    elif player_command == "p":
         print(constants.MESSAGE_PLAY_CARD)
-    elif char == "d":
+    elif player_command == "d":
         print(constants.MESSAGE_DRAW_PLAY)
         drawCardAndPlay()
-    elif char == "i":
+    elif player_command == "i":
         print(constants.MESSAGE_PICK_PILE)
         pickUpAllCardsInPile()
 
 
 def processPlayerTurn():
-    playerAction(getInput())
+    playerAction(getInputAction())
 
 
 # Strip trailing whitespace from player hand
