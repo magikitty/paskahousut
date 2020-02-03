@@ -27,10 +27,9 @@ def getInputCard():
     card_number_valid = False
 
     while card_number_valid == False: 
-        card_number = int(input("\nEnter number of card you want to play: "))
+        card_number = int(input(constants.MESSAGE_CHOOSE_CARD_TO_PLAY))
         if 0 < card_number <= len(player_cards):
             card_played = player_cards[card_number - 1]
-            print("You play the card:", card_played)
             return card_played
 
 
@@ -39,6 +38,7 @@ def playCard():
     card = getInputCard()
     data_cards.removeCardFromPlayerHand(card)
     data_read_write.addToFile("\n" + card, constants.PILE_CARDS)
+    print(constants.MESSAGE_PLAYED_CARD, card)
 
 
 def drawCardAndPlay():
@@ -63,7 +63,7 @@ def getInputAction():
     player_command_valid = False
 
     while player_command_valid == False: 
-        player_command = input("\nWhat do you want to do? ").lower()
+        player_command = input(constants.MESSAGE_CHOOSE_ACTION).lower()
         if player_command == "s" or player_command == "p" or player_command == "d" or player_command == "i" or player_command == "u":
             return player_command
 
