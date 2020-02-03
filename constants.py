@@ -31,5 +31,8 @@ MESSAGE_PLAY_CARD = "You are playing a card from your hand"
 MESSAGE_SHOW_HAND = "\nHere are your cards:\n"
 
 MESSAGE_ALL_CARDS_IN_PILE = "Here are all the cards in the pile. Card number 1 (at the top of the pile) is the most recent card played."
+MESSAGE_CHOOSE_ACTION = "\nWhat do you want to do? "
+MESSAGE_CHOOSE_CARD_TO_PLAY = "\nEnter the number of the card you want to play: "
+MESSAGE_PLAYED_CARD = "You play the card:"
 MESSAGE_PILE_EMPTY = "There are no cards in the pile"
 MESSAGE_TOP_CARD_IN_PILE = "Here is the card at the top of the pile:"
