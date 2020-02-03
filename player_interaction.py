@@ -32,18 +32,13 @@ def getInputCard():
             card_played = player_cards[card_number - 1]
             print("You play the card:", card_played)
             return card_played
-            # card_index = card_number - 1
-            # print("card at index", card_index)
-            # return card_index
 
 
 def playCard():
     displayPlayerHandNumbered()
     card = getInputCard()
     data_cards.removeCardFromPlayerHand(card)
-    print("Here is the new list of cards")   # debugging
-    displayPlayerHandNumbered()              # debugging
-    data_read_write.addToFile(card + "\n", constants.PILE_CARDS)
+    data_read_write.addToFile("\n" + card, constants.PILE_CARDS)
 
 
 def drawCardAndPlay():
@@ -53,7 +48,7 @@ def drawCardAndPlay():
     # Check from rules if can play card
     # If can, play card
     # Else call pickUpAllCardsInPile()
-    data_read_write.addToFile(card + "\n", constants.PILE_CARDS)
+    data_read_write.addToFile("\n" + card, constants.PILE_CARDS)
 
 
 def pickUpAllCardsInPile():
@@ -69,7 +64,7 @@ def getInputAction():
 
     while player_command_valid == False: 
         player_command = input("\nWhat do you want to do? ").lower()
-        if player_command == "s" or player_command == "p" or player_command == "d" or player_command == "i":
+        if player_command == "s" or player_command == "p" or player_command == "d" or player_command == "i" or player_command == "u":
             return player_command
 
 
@@ -78,12 +73,15 @@ def playerAction(player_command):
         displayPlayerHandNumbered()
     elif player_command == "p":
         print(constants.MESSAGE_PLAY_CARD)
+        playCard()
     elif player_command == "d":
         print(constants.MESSAGE_DRAW_PLAY)
         drawCardAndPlay()
-    elif player_command == "i":
+    elif player_command == "u":
         print(constants.MESSAGE_PICK_PILE)
         pickUpAllCardsInPile()
+    elif player_command == "i":
+        displayPileNumbered()
 
 
 def createPileList():
