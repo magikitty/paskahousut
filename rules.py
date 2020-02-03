@@ -1,18 +1,19 @@
 import player_interaction
 
-# Test values need to be replaced with values from game
-test_card_to_play = "10 of Hearts"
-test_card_top_pile_value = 5
+test_card_to_play = "10 of Hearts" # debugging
+test_pile_card_value = 5 # debugging
 
 
 def getCardValue():
     card = test_card_to_play
     card_value = ""
-    for char in card:    
+
+    for char in card:
         if char != " ":
             card_value += char
-        elif char == " ":
+        else:
             break
+
     print(card_value)   # debugging
     return card_value
 
