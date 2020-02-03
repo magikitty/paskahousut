@@ -99,6 +99,17 @@ def displayPileNumbered():
     return numberedCardList(pile_list)
 
 
+def createPileTopCard():
+    pile_list = createPileList()
+    # return last card in the list, so it is the most recently played card
+    return pile_list[-1]
+
+
+def displayPileTopCard():
+    print(constants.MESSAGE_TOP_CARD_IN_PILE)
+    print(createPileTopCard())
+
+
 def processPlayerTurn():
     playerAction(getInputAction())
 
