@@ -19,7 +19,9 @@ MESSAGE_INSTRUCTIONS_INTERACTION = (
     "Press S to show cards in your hand.\n"
     "Press P to play a card from your hand.\n" +
     "Press D to draw a card and immediately play it.\n" +
-    "Press I to pick up all cards in the pile."
+    "Press U to pick up all cards in the pile.\n" +
+    "Press I to inspect the cards in the pile"
+    
     )
 
 MESSAGE_DRAW_CARD = "The card you have drawn is: "
@@ -29,4 +31,5 @@ MESSAGE_PLAY_CARD = "You are playing a card from your hand"
 MESSAGE_SHOW_HAND = "\nHere are your cards:\n"
 
 MESSAGE_ALL_CARDS_IN_PILE = "Here are all the cards in the pile. Card number 1 (at the top of the pile) is the most recent card played."
+MESSAGE_PILE_EMPTY = "There are no cards in the pile"
 MESSAGE_TOP_CARD_IN_PILE = "Here is the card at the top of the pile:"
