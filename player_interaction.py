@@ -102,7 +102,10 @@ def displayPileNumbered():
 def createPileTopCard():
     pile_list = createPileList()
     # return last card in the list, so it is the most recently played card
-    return pile_list[-1]
+    if len(pile_list) > 0:
+        return pile_list[-1]
+    else:
+        return constants.MESSAGE_PILE_EMPTY
 
 
 def displayPileTopCard():
