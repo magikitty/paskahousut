@@ -41,8 +41,8 @@ def playCard():
     displayPlayerHandNumbered()
     card = getInputCard()
     data_cards.removeCardFromPlayerHand(card)
-    print("Here is the new list of cards")
-    displayPlayerHandNumbered()
+    print("Here is the new list of cards")   # debugging
+    displayPlayerHandNumbered()              # debugging
     data_read_write.addToFile(card + "\n", constants.PILE_CARDS)
 
 
@@ -84,6 +84,19 @@ def playerAction(player_command):
     elif player_command == "i":
         print(constants.MESSAGE_PICK_PILE)
         pickUpAllCardsInPile()
+
+
+def createPileList():
+    pile_list = (data_read_write.readFromFile(constants.PILE_CARDS)).split("\n")
+    return data_cards.tidyList(pile_list)
+
+
+def displayPileNumbered():
+    print(constants.MESSAGE_ALL_CARDS_IN_PILE)
+    pile_list = createPileList()
+    # reverse list order, so most recently played card is number 1
+    pile_list.reverse()
+    return numberedCardList(pile_list)
 
 
 def processPlayerTurn():
