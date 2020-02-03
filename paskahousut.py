@@ -48,10 +48,12 @@ def GameLoop(player_first):
         # print("The game is not over!") # debugging
         if player_first == True:
             for _ in range(0, 6):
+                player_interaction.displayPileTopCard()
                 ComputerTurn()
                 PlayerTurn()
         elif player_first == False:
             for _ in range(0, 6):
+                player_interaction.displayPileTopCard()
                 ComputerTurn()
                 PlayerTurn()
         break   # debugging
@@ -79,9 +81,20 @@ def Game():
     ensureMutableDataExists()
     data_read_write.clearFile(constants.HAND_PLAYER)
     data_read_write.clearFile(constants.HAND_COMPUTER)
+    data_read_write.clearFile(constants.PILE_CARDS)
     data_cards.populateDeck()
+
     welcomePlayer()
     player_first = SetFirstPlayer()
+
+    data_cards.dealCardToPlayer()
+    data_cards.dealCardToPlayer()
+    data_cards.dealCardToPlayer()
+    data_cards.dealCardToComputer()
+    data_cards.dealCardToComputer()
+    data_cards.dealCardToComputer()
+    data_cards.dealCardToComputer()
+
     GameLoop(player_first)
 
 
