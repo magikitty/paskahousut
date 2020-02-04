@@ -1,7 +1,7 @@
 import player_interaction
 
-test_card_to_play = "9 of Hearts" # debugging
-test_pile_card_value = 8 # debugging
+test_card_to_play = "10 of Hearts" # debugging
+test_pile_card_value = 7 # debugging
 
 
 def getCardValue():
@@ -61,6 +61,12 @@ def checkCanPlayCard():
             else:
                 can_play_card = False
 
+        elif test_card_value == 10:
+            if test_pile_card_value <= 13:
+                can_play_card = True
+            else:
+                can_play_card = False
+
         else:
             if test_card_value >= test_pile_card_value:
                 can_play_card = True
@@ -68,4 +74,3 @@ def checkCanPlayCard():
                 can_play_card = False
         
         return can_play_card
-
