@@ -35,11 +35,32 @@ def convertValueToInt():
 
 
 def checkCanPlayCard():
-    test_card_value = getCardValue()
-    if test_card_value == "J" or test_card_value == "Q" or test_card_value == "K":
-        print("letter cards")
+    test_card_value = convertValueToInt()
+
+    if test_card_value == 2:
+        can_play_card = True
+
+    elif test_card_value == 3:
+        if test_pile_card_value <= 13:
+            can_play_card = True
+        else:
+            can_play_card = False
+
+    elif test_card_value == 7:
+        if test_pile_card_value <= 13:
+            can_play_card = True
+        else:
+            can_play_card = False
+
     else:
-        if int(test_card_value) >= int(test_card_top_pile_value):
+        if test_card_value >= test_pile_card_value:
+            can_play_card = True
+        else:
+            can_play_card = False
+    
+    return can_play_card
+
+
             can_play_card = True
         else:
             can_play_card = False
