@@ -1,11 +1,12 @@
 import player_interaction
+import data_cards
 
-test_card_to_play = "10 of Hearts" # debugging
+# test_card_to_play = "10 of Hearts" # debugging
 test_pile_card_value = 7 # debugging
 
 
-def getCardValue():
-    card = test_card_to_play
+def getCardValue(card):
+    print("card is", card)
     card_value = ""
 
     for char in card:
@@ -13,13 +14,10 @@ def getCardValue():
             card_value += char
         else:
             break
-
-    # print(card_value)   # debugging
     return card_value
 
 
-def convertValueToInt():
-    card_value = getCardValue()
+def convertValueToInt(card_value):
     if card_value == "J":
         card_value_int = 11
     elif card_value == "Q":
@@ -34,41 +32,32 @@ def convertValueToInt():
     return card_value_int
 
 
-def checkCanPlayCard():
-    test_card_value = convertValueToInt()
-
-    if test_pile_card_value == 7:
-        if test_card_value <= 7:
+def checkCanPlayCard(card_to_play, card_pile_top):
+    if card_pile_top == 7:
+        if card_to_play <= 7:
             can_play_card = True
         else:
             can_play_card = False
         return can_play_card
 
     else:
-
-        if test_card_value == 2:
+        if card_to_play == 2:
             can_play_card = True
 
-        elif test_card_value == 3:
-            if test_pile_card_value <= 13:
+        elif card_to_play == 3:
+            if card_pile_top <= 13:
                 can_play_card = True
             else:
-                can_play_card = False
+                can_play_card = False           # IMPLEMENT card_pile_top == 3
 
-        elif test_card_value == 7:
-            if test_pile_card_value <= 13:
-                can_play_card = True
-            else:
-                can_play_card = False
-
-        elif test_card_value == 10:
-            if test_pile_card_value <= 13:
+        elif card_to_play == 7 or card_to_play == 10:
+            if card_pile_top <= 13:
                 can_play_card = True
             else:
                 can_play_card = False
 
         else:
-            if test_card_value >= test_pile_card_value:
+            if card_to_play >= card_pile_top:
                 can_play_card = True
             else:
                 can_play_card = False
