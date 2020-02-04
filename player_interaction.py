@@ -2,6 +2,7 @@ import data_read_write
 import data_cards
 import readchar
 import constants
+import rules
 
 
 # adding line numbers to cards
@@ -34,11 +35,35 @@ def getInputCard():
 
 
 def playCard():
+    ## DISPLAY
     displayPlayerHandNumbered()
-    card = getInputCard()
-    data_cards.removeCardFromPlayerHand(card)
-    data_read_write.addToFile("\n" + card, constants.PILE_CARDS)
-    print(constants.MESSAGE_PLAYED_CARD, card)
+    displayPileTopCard()
+    
+    ## PLAYER
+    card_play = getInputCard()
+    print("card", card_play)
+    card_play_value_string = rules.getCardValue(card_play)
+    print("cardValueString", card_play_value_string)
+    card_play_value_int = rules.convertValueToInt(card_play_value_string)
+    print("cardValueInt", card_play_value_int)
+
+    ## PILE
+    card_pile = createPileTopCard()
+    card_pile_value_string = rules.getCardValue(card_pile)
+    card_pile_value_int = rules.convertValueToInt(card_pile_value_string)
+
+    ## PLAYING
+    # cardValueString = rules.convertValueToInt(card)
+    playerCanPlayCard = rules.checkCanPlayCard(card_play_value_int, card_pile_value_int)
+    print("rules.playerCanPlayCard", playerCanPlayCard)
+
+            #  Check from rules if can play card
+            # If can, play card
+            # Else give message that can't play card and go back to getInputCard()
+    
+    # data_cards.removeCardFromPlayerHand(card)
+    # data_read_write.addToFile("\n" + card, constants.PILE_CARDS)
+    # print(constants.MESSAGE_PLAYED_CARD, card)
 
 
 def drawCardAndPlay():
