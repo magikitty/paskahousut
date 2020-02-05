@@ -9,7 +9,7 @@ import rules
 def numberedCardList(cards_to_number):
     for i in range(0, len(cards_to_number)):
         num = i + 1
-        print(str(num) + ".", cards_to_number[i])
+        print(str(num) + ")", cards_to_number[i])
 
 
 def cardListPlayer():
@@ -38,7 +38,7 @@ def playCard():
     ## DISPLAY
     displayPlayerHandNumbered()
     displayPileTopCard()
-    
+
     ## PLAYER
     card_play = getInputCard()
     print("card", card_play)                                                # debugging
@@ -54,16 +54,16 @@ def playCard():
 
     ## PLAYING
     # cardValueString = rules.convertValueToInt(card)
-    playerCanPlayCard = rules.checkCanPlayCard(card_play_value_int, card_pile_value_int)
-    print("rules.playerCanPlayCard", playerCanPlayCard)
+    player_can_play_card = rules.checkCanPlayCard(card_play_value_int, card_pile_value_int)
+    print("rules.playerCanPlayCard", player_can_play_card)                     # debugging
 
-            #  Check from rules if can play card
-            # If can, play card
-            # Else give message that can't play card and go back to getInputCard()
-    
-    data_cards.removeCardFromPlayerHand(card_play)
-    data_read_write.addToFile("\n" + card_play, constants.PILE_CARDS)
-    print(constants.MESSAGE_PLAYED_CARD, card_play)
+    if player_can_play_card == True:
+        data_cards.removeCardFromPlayerHand(card_play)
+        data_read_write.addToFile("\n" + card_play, constants.PILE_CARDS)
+        print(constants.MESSAGE_PLAYED_CARD, card_play)
+    else:
+        print(constants.MESSAGE_CANNOT_PLAY_CARD)
+        processPlayerTurn()
 
 
 def drawCardAndPlay():
