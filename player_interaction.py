@@ -53,14 +53,18 @@ def playCard():
     card_pile_value_int = value_cards.convertValueToInt(card_pile_value_string)
 
     ## PLAYING
-    # cardValueString = rules.convertValueToInt(card)
     player_can_play_card = rules.checkCanPlayCard(card_play_value_int, card_pile_value_int)
     print("rules.playerCanPlayCard", player_can_play_card)                     # debugging
 
     if player_can_play_card == True:
         data_cards.removeCardFromPlayerHand(card_play)
-        data_read_write.addToFile("\n" + card_play, constants.PILE_CARDS)
         print(constants.MESSAGE_PLAYED_CARD, card_play)
+        if card_play_value_int == 10:
+            rules.foldDeckWithTen(card_play)
+        else:
+            # data_cards.removeCardFromPlayerHand(card_play)
+            data_read_write.addToFile("\n" + card_play, constants.PILE_CARDS)
+            # print(constants.MESSAGE_PLAYED_CARD, card_play)
     else:
         print(constants.MESSAGE_CANNOT_PLAY_CARD)
         processPlayerTurn()

@@ -34,6 +34,7 @@ MESSAGE_ALL_CARDS_IN_PILE = "\nHere are all the cards in the pile. Card number 1
 MESSAGE_CANNOT_PLAY_CARD = "\nYou cannot play that card. Choose another card or do something else."
 MESSAGE_CHOOSE_ACTION = "\nWhat do you want to do? "
 MESSAGE_CHOOSE_CARD_TO_PLAY = "\nEnter the number of the card you want to play: "
+MESSAGE_FOLD_PILE = "\nThe pile has been folded."
 MESSAGE_PLAYED_CARD = "\nYou play the card:"
 MESSAGE_PILE_EMPTY = "\nThere are no cards in the pile"
 MESSAGE_TOP_CARD_IN_PILE = "\nHere is the card at the top of the pile:"
