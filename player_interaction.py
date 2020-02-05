@@ -62,9 +62,7 @@ def playCard():
         if card_play_value_int == 10:
             rules.foldDeckWithTen(card_play)
         else:
-            # data_cards.removeCardFromPlayerHand(card_play)
             data_read_write.addToFile("\n" + card_play, constants.PILE_CARDS)
-            # print(constants.MESSAGE_PLAYED_CARD, card_play)
     else:
         print(constants.MESSAGE_CANNOT_PLAY_CARD)
         processPlayerTurn()
@@ -136,6 +134,23 @@ def createPileTopCard():
         empty_pile_list = ["0"]
         print(constants.MESSAGE_PILE_EMPTY)
         return empty_pile_list[0]
+
+
+def cardPileTopAfterThree():
+    pile_list = createPileList()
+    pile_list.reverse()
+    print("pile list is", pile_list)        #debugging
+    card = pile_list[0]
+    card_pile_value_string = value_cards.getCardValue(card)
+    
+    for i in range(0, len(pile_list)+1):
+        while card_pile_value_string == "3":
+            new_card = pile_list[i + 1]
+            card_pile_value_string = value_cards.getCardValue(new_card)
+            break
+    print("new card to beat is:", new_card)        #debugging
+    return new_card
+
 
 
 def displayPileTopCard():
