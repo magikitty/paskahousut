@@ -24,6 +24,12 @@ MESSAGE_INSTRUCTIONS_INTERACTION = (
     
     )
 
+ACTION_ALL_CARDS_IN_PILE = "i"
+ACTION_DRAW_PLAY = "d"
+ACTION_PICK_PILE= "u"
+ACTION_PLAY_CARD = "p"
+ACTION_SHOW_HAND = "s"
+
 MESSAGE_DRAW_CARD = "The card you have drawn is: "
 MESSAGE_DRAW_PLAY = "You are drawing a card and playing it"
 MESSAGE_PICK_PILE = "You are picking up all the cards in the pile"
