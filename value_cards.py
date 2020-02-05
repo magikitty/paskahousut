@@ -1,5 +1,4 @@
 def getCardValue(card):
-    print("card is", card)
     card_value = ""
 
     for char in card:
@@ -21,5 +20,4 @@ def convertValueToInt(card_value):
         card_value_int = 14
     else:
         card_value_int = int(card_value)
-    print("the int value of", card_value, "is", card_value_int)   # debugging
     return card_value_int
