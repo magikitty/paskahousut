@@ -41,11 +41,11 @@ def playCard():
     
     ## PLAYER
     card_play = getInputCard()
-    print("card", card_play)
+    print("card", card_play)                                                # debugging
     card_play_value_string = rules.getCardValue(card_play)
-    print("cardValueString", card_play_value_string)
+    print("cardValueString", card_play_value_string)                        # debugging
     card_play_value_int = rules.convertValueToInt(card_play_value_string)
-    print("cardValueInt", card_play_value_int)
+    print("cardValueInt", card_play_value_int)                              # debugging
 
     ## PILE
     card_pile = createPileTopCard()
@@ -61,9 +61,9 @@ def playCard():
             # If can, play card
             # Else give message that can't play card and go back to getInputCard()
     
-    # data_cards.removeCardFromPlayerHand(card)
-    # data_read_write.addToFile("\n" + card, constants.PILE_CARDS)
-    # print(constants.MESSAGE_PLAYED_CARD, card)
+    data_cards.removeCardFromPlayerHand(card_play)
+    data_read_write.addToFile("\n" + card_play, constants.PILE_CARDS)
+    print(constants.MESSAGE_PLAYED_CARD, card_play)
 
 
 def drawCardAndPlay():
@@ -128,12 +128,17 @@ def createPileTopCard():
     if len(pile_list) > 0:
         return pile_list[-1]
     else:
-        return constants.MESSAGE_PILE_EMPTY
+        # Need a card with value 0 if the pile is empty, so player can play a card on the empty pile
+        empty_pile_list = ["0"]
+        print(constants.MESSAGE_PILE_EMPTY)
+        return empty_pile_list[0]
 
 
 def displayPileTopCard():
     print(constants.MESSAGE_TOP_CARD_IN_PILE)
-    print(createPileTopCard())
+    card_pile_top = createPileTopCard()
+    if card_pile_top != "0":
+        print(card_pile_top)
 
 
 def processPlayerTurn():
