@@ -96,18 +96,23 @@ def getInputAction():
 
 
 def playerAction(player_command):
-    if player_command == "s":
+    # if player_command == "s":
+    if player_command == constants.ACTION_SHOW_HAND:
         displayPlayerHandNumbered()
-    elif player_command == "p":
+    # elif player_command == "p":
+    elif player_command == constants.ACTION_PLAY_CARD:
         print(constants.MESSAGE_PLAY_CARD)
         playCard()
-    elif player_command == "d":
+    # elif player_command == "d":
+    elif player_command == constants.ACTION_DRAW_PLAY:
         print(constants.MESSAGE_DRAW_PLAY)
         drawCardAndPlay()
-    elif player_command == "u":
+    # elif player_command == "u":
+    elif player_command == constants.ACTION_PICK_PILE:
         print(constants.MESSAGE_PICK_PILE)
         pickUpAllCardsInPile()
-    elif player_command == "i":
+    # elif player_command == "i":
+    elif player_command == constants.ACTION_ALL_CARDS_IN_PILE:
         displayPileNumbered()
 
 
@@ -136,7 +141,7 @@ def createPileTopCard():
         return empty_pile_list[0]
 
 
-def cardPileTopAfterThree():
+def cardUnderThree():
     pile_list = createPileList()
     pile_list.reverse()
     print("pile list is", pile_list)        #debugging
