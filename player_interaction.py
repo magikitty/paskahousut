@@ -145,17 +145,18 @@ def cardUnderThree():
     pile_list = createPileList()
     pile_list.reverse()
     print("pile list is", pile_list)        #debugging
-    card = pile_list[0]
-    card_pile_value_string = value_cards.getCardValue(card)
-    
-    for i in range(0, len(pile_list)+1):
-        while card_pile_value_string == "3":
-            new_card = pile_list[i + 1]
-            card_pile_value_string = value_cards.getCardValue(new_card)
-            break
-    print("new card to beat is:", new_card)        #debugging
-    return new_card
 
+    counter = 0
+    while counter < len(pile_list):
+        new_card = pile_list[counter]
+        counter += 1
+        print("counter is", counter)
+        print("new card is", new_card)
+        if value_cards.getCardValue(new_card) != "3":
+            print("card under 3 is:", new_card)
+            return new_card
+    print("We are returning 0")
+    return "0"
 
 
 def displayPileTopCard():
