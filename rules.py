@@ -1,5 +1,7 @@
 import player_interaction
+import constants
 import data_cards
+import data_read_write
 
 
 def checkCanPlayCard(card_to_play, card_pile_top):
@@ -33,3 +35,8 @@ def checkCanPlayCard(card_to_play, card_pile_top):
                 can_play_card = False
         
         return can_play_card
+
+
+def foldDeckWithTen(card_10):
+    data_read_write.clearFile(constants.PILE_CARDS)
+    print(constants.MESSAGE_FOLD_PILE)
