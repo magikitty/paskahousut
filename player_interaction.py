@@ -1,8 +1,8 @@
-import data_read_write
-import data_cards
-import readchar
 import constants
+import data_cards
+import data_read_write
 import rules
+import value_cards
 
 
 # adding line numbers to cards
@@ -42,15 +42,15 @@ def playCard():
     ## PLAYER
     card_play = getInputCard()
     print("card", card_play)                                                # debugging
-    card_play_value_string = rules.getCardValue(card_play)
+    card_play_value_string = value_cards.getCardValue(card_play)
     print("cardValueString", card_play_value_string)                        # debugging
-    card_play_value_int = rules.convertValueToInt(card_play_value_string)
+    card_play_value_int = value_cards.convertValueToInt(card_play_value_string)
     print("cardValueInt", card_play_value_int)                              # debugging
 
     ## PILE
     card_pile = createPileTopCard()
-    card_pile_value_string = rules.getCardValue(card_pile)
-    card_pile_value_int = rules.convertValueToInt(card_pile_value_string)
+    card_pile_value_string = value_cards.getCardValue(card_pile)
+    card_pile_value_int = value_cards.convertValueToInt(card_pile_value_string)
 
     ## PLAYING
     # cardValueString = rules.convertValueToInt(card)
