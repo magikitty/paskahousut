@@ -41,20 +41,20 @@ def playCard():
 
     ## PLAYER
     card_play = getInputCard()
-    print("card", card_play)                                                # debugging
     card_play_value_string = value_cards.getCardValue(card_play)
-    print("cardValueString", card_play_value_string)                        # debugging
     card_play_value_int = value_cards.convertValueToInt(card_play_value_string)
-    print("cardValueInt", card_play_value_int)                              # debugging
 
     ## PILE
     card_pile = createPileTopCard()
     card_pile_value_string = value_cards.getCardValue(card_pile)
     card_pile_value_int = value_cards.convertValueToInt(card_pile_value_string)
+    # If top card in pile is 3
+    if card_pile_value_int == 3:
+        card_pile_value_string = value_cards.getCardValue(cardUnderThree())
+        card_pile_value_int = value_cards.convertValueToInt(card_pile_value_string)
 
     ## PLAYING
     player_can_play_card = rules.checkCanPlayCard(card_play_value_int, card_pile_value_int)
-    print("rules.playerCanPlayCard", player_can_play_card)                     # debugging
 
     if player_can_play_card == True:
         data_cards.removeCardFromPlayerHand(card_play)
@@ -144,18 +144,13 @@ def createPileTopCard():
 def cardUnderThree():
     pile_list = createPileList()
     pile_list.reverse()
-    print("pile list is", pile_list)        #debugging
-
     counter = 0
+
     while counter < len(pile_list):
-        new_card = pile_list[counter]
+        card_to_beat = pile_list[counter]
         counter += 1
-        print("counter is", counter)
-        print("new card is", new_card)
-        if value_cards.getCardValue(new_card) != "3":
-            print("card under 3 is:", new_card)
-            return new_card
-    print("We are returning 0")
+        if value_cards.getCardValue(card_to_beat) != "3":
+            return card_to_beat
     return "0"
 
 
@@ -168,9 +163,3 @@ def displayPileTopCard():
 
 def processPlayerTurn():
     playerAction(getInputAction())
-
-
-# Strip trailing whitespace from player hand
-    # stripped_data = data_read_write.readFromFile(HAND_PLAYER).strip()
-    # data_read_write.writeToFile(stripped_data, constants.HAND_PLAYER)
-    # # print((data_read_write.readFromFile(HAND_PLAYER)).strip())
