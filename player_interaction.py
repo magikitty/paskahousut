@@ -52,7 +52,6 @@ def playCard():
     ## PILE
     card_pile = createPileTopCard()
     card_pile_value_int = cardValueToInt(card_pile)
-    
     # If top card in pile is 3
     if card_pile_value_int == 3:
         card_pile_value_string = value_cards.getCardValue(cardUnderThree())
@@ -74,13 +73,24 @@ def playCard():
 
 
 def drawCardAndPlay():
-    card = data_cards.getRandomCard()
-    data_cards.removeCardFromDeck(card)
-    print(constants.MESSAGE_DRAW_CARD + card)
-    # Check from rules if can play card
-    # If can, play card
-    # Else call pickUpAllCardsInPile()
-    data_read_write.addToFile("\n" + card, constants.PILE_CARDS)
+    card_drawn = data_cards.getRandomCard()
+    data_cards.removeCardFromDeck(card_drawn)
+    print(constants.MESSAGE_DRAW_CARD + card_drawn)
+    card_play_value_int = cardValueToInt(card_drawn)
+    card_pile_value_int = cardValueToInt(createPileTopCard())
+
+    player_can_play_card = rules.checkCanPlayCard(card_play_value_int, card_pile_value_int)
+
+    if player_can_play_card == True:
+        data_cards.removeCardFromPlayerHand(card_drawn)
+        print(constants.MESSAGE_PLAYED_CARD, card_drawn)
+        if card_play_value_int == 10:
+            rules.foldDeckWithTen(card_drawn)
+        else:
+            data_read_write.addToFile("\n" + card_drawn, constants.PILE_CARDS)
+    else:
+        data_read_write.addToFile(card_drawn, constants.HAND_PLAYER)
+        pickUpAllCardsInPile()
 
 
 def pickUpAllCardsInPile():
