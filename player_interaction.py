@@ -34,6 +34,12 @@ def getInputCard():
             return card_played
 
 
+def cardValueToInt(card):
+    card_value_string = value_cards.getCardValue(card)
+    card_value_int = value_cards.convertValueToInt(card_value_string)
+    return card_value_int
+
+
 def playCard():
     ## DISPLAY
     displayPlayerHandNumbered()
@@ -41,13 +47,12 @@ def playCard():
 
     ## PLAYER
     card_play = getInputCard()
-    card_play_value_string = value_cards.getCardValue(card_play)
-    card_play_value_int = value_cards.convertValueToInt(card_play_value_string)
+    card_play_value_int = cardValueToInt(card_play)
 
     ## PILE
     card_pile = createPileTopCard()
-    card_pile_value_string = value_cards.getCardValue(card_pile)
-    card_pile_value_int = value_cards.convertValueToInt(card_pile_value_string)
+    card_pile_value_int = cardValueToInt(card_pile)
+    
     # If top card in pile is 3
     if card_pile_value_int == 3:
         card_pile_value_string = value_cards.getCardValue(cardUnderThree())
