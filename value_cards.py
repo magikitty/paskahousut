@@ -21,3 +21,9 @@ def convertValueToInt(card_value):
     else:
         card_value_int = int(card_value)
     return card_value_int
+
+
+def cardValueToInt(card):
+    card_value_string = getCardValue(card)
+    card_value_int = convertValueToInt(card_value_string)
+    return card_value_int

@@ -34,12 +34,6 @@ def getInputCard():
             return card_played
 
 
-def cardValueToInt(card):
-    card_value_string = value_cards.getCardValue(card)
-    card_value_int = value_cards.convertValueToInt(card_value_string)
-    return card_value_int
-
-
 def playCard():
     ## DISPLAY
     displayPlayerHandNumbered()
@@ -47,11 +41,11 @@ def playCard():
 
     ## PLAYER
     card_play = getInputCard()
-    card_play_value_int = cardValueToInt(card_play)
+    card_play_value_int = value_cards.cardValueToInt(card_play)
 
     ## PILE
     card_pile = createPileTopCard()
-    card_pile_value_int = cardValueToInt(card_pile)
+    card_pile_value_int = value_cards.cardValueToInt(card_pile)
     # If top card in pile is 3
     if card_pile_value_int == 3:
         card_pile_value_string = value_cards.getCardValue(cardUnderThree())
@@ -76,8 +70,8 @@ def drawCardAndPlay():
     card_drawn = data_cards.getRandomCard()
     data_cards.removeCardFromDeck(card_drawn)
     print(constants.MESSAGE_DRAW_CARD + card_drawn)
-    card_play_value_int = cardValueToInt(card_drawn)
-    card_pile_value_int = cardValueToInt(createPileTopCard())
+    card_play_value_int = value_cards.cardValueToInt(card_drawn)
+    card_pile_value_int = value_cards.cardValueToInt(createPileTopCard())
 
     player_can_play_card = rules.checkCanPlayCard(card_play_value_int, card_pile_value_int)
 
