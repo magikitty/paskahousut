@@ -27,3 +27,14 @@ def cardValueToInt(card):
     card_value_string = getCardValue(card)
     card_value_int = convertValueToInt(card_value_string)
     return card_value_int
+
+
+def getCardSuite(card):
+    card_suite = ""
+    space_before_word = card.rfind(" ")
+    starting_index = space_before_word + 1
+
+    for i in range(starting_index, len(card)):
+        char = card[i]
+        card_suite += char
+    return card_suite
