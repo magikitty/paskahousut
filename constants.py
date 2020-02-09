@@ -46,3 +46,6 @@ MESSAGE_PILE_EMPTY = "\nThere are no cards in the pile"
 MESSAGE_PLAYED_CARD = "\nYou play the card:"
 MESSAGE_PLAYER_TURN = "\nIt's the player's turn!"
 MESSAGE_TOP_CARD_IN_PILE = "\nHere is the card at the top of the pile:"
+
+# Dictionary with card suite values
+card_suite_values = {"Clubs": 1, "Diamonds": 2, "Spades": 3, "Hearts": 4}
