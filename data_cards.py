@@ -34,7 +34,7 @@ def countCardsInDeck():
 def dealCardToPlayer():
     if testCanDeal(constants.HAND_PLAYER) == True:
         card = getRandomCard()
-        print("*** Dealt card to player: " + card)
+        print("*** Dealt card to player: " + card)          # debugging
         data_read_write.addToFile(card + "\n", constants.HAND_PLAYER)
         removeCardFromDeck(card)
 
@@ -42,7 +42,7 @@ def dealCardToPlayer():
 def dealCardToComputer():
     if testCanDeal(constants.HAND_COMPUTER) == True:
         card = getRandomCard()
-        print("~~~ Dealt card to computer: " + card)
+        print("~~~ Dealt card to computer: " + card)          # debugging
         data_read_write.addToFile(card + "\n", constants.HAND_COMPUTER)
         removeCardFromDeck(card)
 
@@ -87,3 +87,8 @@ def tidyList(list_to_tidy):
         if len(list_to_tidy[i]) > 0:
             clean_list.append(list_to_tidy[i])
     return clean_list
+
+
+def cardList(card_data_file):
+    card_list = (data_read_write.readFromFile(card_data_file).split("\n"))
+    return tidyList(card_list)
