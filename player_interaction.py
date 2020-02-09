@@ -164,10 +164,11 @@ def cardUnderThree():
 
 
 def displayPileTopCard():
-    print(constants.MESSAGE_TOP_CARD_IN_PILE)
     card_pile_top = createPileTopCard()
     if card_pile_top != "0":
+        print(constants.MESSAGE_TOP_CARD_IN_PILE)
         print(card_pile_top)
+
 
 
 def processPlayerTurn():
