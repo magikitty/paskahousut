@@ -13,8 +13,7 @@ def numberedCardList(cards_to_number):
 
 
 def cardListPlayer():
-    card_list = (data_read_write.readFromFile(constants.HAND_PLAYER).split("\n"))
-    return data_cards.tidyList(card_list) 
+    return data_cards.cardList(constants.HAND_PLAYER)
 
 
 def displayPlayerHandNumbered():
