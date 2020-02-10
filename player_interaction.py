@@ -90,6 +90,7 @@ def pickUpAllCardsInPile():
     cards_in_pile = data_read_write.readFromFile(constants.PILE_CARDS)
     data_read_write.addToFile("\n" + cards_in_pile, constants.HAND_PLAYER)
     data_read_write.clearFile(constants.PILE_CARDS)
+    print(constants.MESSAGE_PICK_PILE)
 
 
 def getInputAction():
