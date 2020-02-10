@@ -4,7 +4,7 @@ import data_read_write
 import value_cards
 
 
-def pickFirstPlayer():
+def playerGoesFirst():
     hand_player = data_cards.cardList(constants.HAND_PLAYER)
     hand_computer = data_cards.cardList(constants.HAND_COMPUTER)
     return playerWithLowestHand(lowestCardInHand(hand_player), lowestCardInHand(hand_computer))
