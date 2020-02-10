@@ -5,6 +5,9 @@ import data_player_name
 import data_read_write
 import player_interaction
 import constants
+import value_cards
+import rules
+import first_player
 
 
 def ensureMutableDataExists():
@@ -28,15 +31,9 @@ def GetSaveName():
     data_player_name.setPlayerName(player_name)
 
 
-# Set first player (as Player or Computer) to start game
-def SetFirstPlayer():
-    start_num = random.randint(0, 1)
-    player_first = False
-
-    if start_num == 0:
-        player_first = True
-
-    return player_first
+# # Set first player
+# player_first = first_player.playerGoesFirst()
+# print("Player goes first is", player_first)
 
 
 # GameLoop alternates between the player's and computer's turn
@@ -47,13 +44,13 @@ def GameLoop(player_first):
     while game_over == False:
         # print("The game is not over!") # debugging
         if player_first == True:
-            for _ in range(0, 6):
+            for _ in range(0, 6): # debugging: limited game to six turns
                 player_interaction.displayPileTopCard()
-                ComputerTurn()
                 PlayerTurn()
+                ComputerTurn()
         elif player_first == False:
-            for _ in range(0, 6):
-                player_interaction.displayPileTopCard()
+            for _ in range(0, 6): # debugging: limited game to six turns
+                # player_interaction.displayPileTopCard()
                 ComputerTurn()
                 PlayerTurn()
         break   # debugging
@@ -67,6 +64,7 @@ def PlayerTurn():
     print(constants.MESSAGE_PLAYER_TURN)
     data_cards.dealCardToPlayer()
     player_interaction.displayPlayerHandNumbered()
+    player_interaction.displayPileTopCard()
     player_interaction.processPlayerTurn()
 
 
@@ -85,7 +83,8 @@ def Game():
     data_cards.populateDeck()
 
     welcomePlayer()
-    player_first = SetFirstPlayer()
+    # player_first = first_player.playerGoesFirst()
+    # print("Player goes first is", player_first)
 
     data_cards.dealCardToPlayer()
     data_cards.dealCardToPlayer()
@@ -95,8 +94,10 @@ def Game():
     data_cards.dealCardToComputer()
     data_cards.dealCardToComputer()
 
-    GameLoop(player_first)
+    print("player first is", first_player.playerGoesFirst())        # debugging
+    GameLoop(first_player.playerGoesFirst())
 
 
 # Entry point function
-Game()
+# Game()
+print(first_player.playerGoesFirst())
