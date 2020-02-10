@@ -37,7 +37,7 @@ def checkCanPlayCard(card_to_play, card_pile_top):
         return can_play_card
 
 
-def foldDeckWithTen(card_10):
+def foldPile():
     data_read_write.clearFile(constants.PILE_CARDS)
     print(constants.MESSAGE_FOLD_PILE)
 
