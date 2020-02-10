@@ -46,15 +46,7 @@ def playerWithLowestHand(card_lowest_player, card_lowest_computer):
         card_lowest_player_suite = value_cards.getCardSuite(card_lowest_player)
         card_lowest_computer_suite = value_cards.getCardSuite(card_lowest_computer)
 
-        if card_lowest_player_suite < card_lowest_computer_suite:
+        if constants.card_suite_values[card_lowest_player_suite] < constants.card_suite_values[card_lowest_computer_suite]:
             player_first = True
 
     return player_first
-
-
-    # hand_player_values = value_cards.listCardValues(hand_player)
-    # hand_player_values.sort()
-    # hand_computer_values = value_cards.listCardValues(hand_computer)
-    # hand_computer_values.sort()
-    # print("player hand values", hand_player_values)     # debugging
-    # print("computer hand values", hand_computer_values)     # debugging
