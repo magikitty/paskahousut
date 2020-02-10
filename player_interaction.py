@@ -57,9 +57,11 @@ def playCard():
         data_cards.removeCardFromPlayerHand(card_play)
         print(constants.MESSAGE_PLAYED_CARD, card_play)
         if card_play_value_int == 10:
-            rules.foldDeckWithTen(card_play)
+            rules.foldPile()
         else:
             data_read_write.addToFile("\n" + card_play, constants.PILE_CARDS)
+            if rules.fourOfAKind() == True:
+                rules.foldPile()
     else:
         print(constants.MESSAGE_CANNOT_PLAY_CARD)
         processPlayerTurn()
@@ -78,7 +80,7 @@ def drawCardAndPlay():
         data_cards.removeCardFromPlayerHand(card_drawn)
         print(constants.MESSAGE_PLAYED_CARD, card_drawn)
         if card_play_value_int == 10:
-            rules.foldDeckWithTen(card_drawn)
+            rules.foldPile()
         else:
             data_read_write.addToFile("\n" + card_drawn, constants.PILE_CARDS)
     else:
