@@ -47,17 +47,15 @@ def fourOfAKind():
     pile_list.reverse()
     four_of_a_kind = False
     counter = 4
-    print("pile_list[0] is", pile_list[0])      # debugging
     top_card_int = value_cards.cardValueToInt(pile_list[0])
-    print("top_card_int is", top_card_int)      # debugging
 
-    for i in range(1, counter):
-        next_card_int = value_cards.cardValueToInt(pile_list[i])
-        print("next_card_int is", next_card_int)      # debugging
-        while top_card_int == next_card_int:
-            counter -= 1
-            print(counter)
-            break
-        if counter == 1:
-            four_of_a_kind = True
-    return four_of_a_kind
+    if len(pile_list) >= 4:
+        for i in range(1, counter):
+            next_card_int = value_cards.cardValueToInt(pile_list[i])
+            while top_card_int == next_card_int:
+                counter -= 1
+                print(counter)
+                break
+            if counter == 1:
+                four_of_a_kind = True
+        return four_of_a_kind
