@@ -31,11 +31,6 @@ def GetSaveName():
     data_player_name.setPlayerName(player_name)
 
 
-# # Set first player
-# player_first = first_player.playerGoesFirst()
-# print("Player goes first is", player_first)
-
-
 # GameLoop alternates between the player's and computer's turn
 def GameLoop(player_first):
     print("The game loop has started.") # debugging
@@ -99,5 +94,4 @@ def Game():
 
 
 # Entry point function
-# Game()
-print(first_player.playerGoesFirst())
+Game()
