@@ -31,8 +31,11 @@ def playerAction(player_command):
             processPlayerTurn()
     # elif player_command == "u":
     elif player_command == constants.ACTION_PICK_PILE:
-        print(constants.MESSAGE_PICK_PILE)
-        pickUpAllCardsInPile()
+        if len(data_cards.cardList(constants.PILE_CARDS)) > 0:
+            pickUpAllCardsInPile()
+        else:
+            print("There are no cards in the pile. Do something else.") # debugging
+            processPlayerTurn()
     # elif player_command == "i":
     elif player_command == constants.ACTION_ALL_CARDS_IN_PILE:
         displayPileNumbered()
