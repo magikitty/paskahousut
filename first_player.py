@@ -10,6 +10,26 @@ def playerGoesFirst():
     return playerWithLowestHand(lowestCardInHand(hand_player), lowestCardInHand(hand_computer))
 
 
+# compare player and computer lowest card
+def playerWithLowestHand(card_lowest_player, card_lowest_computer):
+    card_lowest_player_value = value_cards.cardValueToInt(card_lowest_player)
+    card_lowest_computer_value = value_cards.cardValueToInt(card_lowest_computer)
+
+    player_first = False
+
+    if card_lowest_player_value < card_lowest_computer_value:
+        player_first = True
+
+    elif card_lowest_player_value == card_lowest_computer_value:
+        card_lowest_player_suite = value_cards.getCardSuite(card_lowest_player)
+        card_lowest_computer_suite = value_cards.getCardSuite(card_lowest_computer)
+
+        if constants.card_suite_values[card_lowest_player_suite] < constants.card_suite_values[card_lowest_computer_suite]:
+            player_first = True
+
+    return player_first
+
+
 def lowestCardInHand(hand_list):
     card_lowest = "15"
 
@@ -30,23 +50,3 @@ def lowestCardInHand(hand_list):
                 card_lowest = hand_list[i]
 
     return card_lowest
-
-
-# compare player and computer lowest card
-def playerWithLowestHand(card_lowest_player, card_lowest_computer):
-    card_lowest_player_value = value_cards.cardValueToInt(card_lowest_player)
-    card_lowest_computer_value = value_cards.cardValueToInt(card_lowest_computer)
-
-    player_first = False
-
-    if card_lowest_player_value < card_lowest_computer_value:
-        player_first = True
-
-    elif card_lowest_player_value == card_lowest_computer_value:
-        card_lowest_player_suite = value_cards.getCardSuite(card_lowest_player)
-        card_lowest_computer_suite = value_cards.getCardSuite(card_lowest_computer)
-
-        if constants.card_suite_values[card_lowest_player_suite] < constants.card_suite_values[card_lowest_computer_suite]:
-            player_first = True
-
-    return player_first
