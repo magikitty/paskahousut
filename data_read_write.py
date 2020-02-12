@@ -1,3 +1,4 @@
+import constants
 from pathlib import Path
 
 
@@ -38,3 +39,19 @@ def ensureFileExists(filePath):
 
     if file_exists == False:
         writeToFile("", filePath)
+
+
+def ensureMutableDataExists():
+    ensureDirectoryExists("data_mutable")
+    ensureFileExists("data_mutable/cards_in_deck.txt")
+    ensureFileExists("data_mutable/cards_in_pile.txt")
+    ensureFileExists("data_mutable/computer_hand.txt")
+    ensureFileExists("data_mutable/player_hand.txt")
+    ensureFileExists("data_mutable/player_name.txt")
+
+
+# Clear text files for beginning of new game
+def ensureFilesClear():
+    clearFile(constants.HAND_PLAYER)
+    clearFile(constants.HAND_COMPUTER)
+    clearFile(constants.PILE_CARDS)
