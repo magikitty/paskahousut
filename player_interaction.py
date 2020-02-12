@@ -5,6 +5,42 @@ import rules
 import value_cards
 
 
+def processPlayerTurn():
+    playerAction(getInputAction())
+
+
+def playerAction(player_command):
+    # if player_command == "s":
+    if player_command == constants.ACTION_SHOW_HAND:
+        displayPlayerHandNumbered()
+    # elif player_command == "p":
+    elif player_command == constants.ACTION_PLAY_CARD:
+        print(constants.MESSAGE_PLAY_CARD)
+        playCard()
+    # elif player_command == "d":
+    elif player_command == constants.ACTION_DRAW_PLAY:
+        print(constants.MESSAGE_DRAW_PLAY)
+        drawCardAndPlay()
+    # elif player_command == "u":
+    elif player_command == constants.ACTION_PICK_PILE:
+        print(constants.MESSAGE_PICK_PILE)
+        pickUpAllCardsInPile()
+    # elif player_command == "i":
+    elif player_command == constants.ACTION_ALL_CARDS_IN_PILE:
+        displayPileNumbered()
+
+
+def getInputAction():
+    print(constants.MESSAGE_INSTRUCTIONS_INTERACTION)
+
+    player_command_valid = False
+
+    while player_command_valid == False: 
+        player_command = input(constants.MESSAGE_CHOOSE_ACTION).lower()
+        if player_command == "s" or player_command == "p" or player_command == "d" or player_command == "i" or player_command == "u":
+            return player_command
+
+
 def playCard():
     ## DISPLAY
     displayPlayerHandNumbered()
@@ -105,42 +141,6 @@ def pickUpAllCardsInPile():
     print(constants.MESSAGE_PICK_PILE)
 
 
-def processPlayerTurn():
-    playerAction(getInputAction())
-
-
-def playerAction(player_command):
-    # if player_command == "s":
-    if player_command == constants.ACTION_SHOW_HAND:
-        displayPlayerHandNumbered()
-    # elif player_command == "p":
-    elif player_command == constants.ACTION_PLAY_CARD:
-        print(constants.MESSAGE_PLAY_CARD)
-        playCard()
-    # elif player_command == "d":
-    elif player_command == constants.ACTION_DRAW_PLAY:
-        print(constants.MESSAGE_DRAW_PLAY)
-        drawCardAndPlay()
-    # elif player_command == "u":
-    elif player_command == constants.ACTION_PICK_PILE:
-        print(constants.MESSAGE_PICK_PILE)
-        pickUpAllCardsInPile()
-    # elif player_command == "i":
-    elif player_command == constants.ACTION_ALL_CARDS_IN_PILE:
-        displayPileNumbered()
-
-
-def getInputAction():
-    print(constants.MESSAGE_INSTRUCTIONS_INTERACTION)
-
-    player_command_valid = False
-
-    while player_command_valid == False: 
-        player_command = input(constants.MESSAGE_CHOOSE_ACTION).lower()
-        if player_command == "s" or player_command == "p" or player_command == "d" or player_command == "i" or player_command == "u":
-            return player_command
-
-
 def createPileList():
     pile_list = (data_read_write.readFromFile(constants.PILE_CARDS)).split("\n")
     return data_cards.tidyList(pile_list)
@@ -177,10 +177,3 @@ def cardUnderThree():
         if value_cards.getCardValue(card_to_beat) != "3":
             return card_to_beat
     return "0"
-
-
-
-
-
-
-
