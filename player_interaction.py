@@ -13,10 +13,14 @@ def playerAction(player_command):
     # if player_command == "s":
     if player_command == constants.ACTION_SHOW_HAND:
         displayPlayerHandNumbered()
+        processPlayerTurn()
     # elif player_command == "p":
     elif player_command == constants.ACTION_PLAY_CARD:
-        print(constants.MESSAGE_PLAY_CARD)
-        playCard()
+        if len(data_cards.cardList(constants.HAND_PLAYER)) > 0:
+            print(constants.MESSAGE_PLAY_CARD)
+            playCard()
+        else:
+            print("You don't have any cards left!") # debugging
     # elif player_command == "d":
     elif player_command == constants.ACTION_DRAW_PLAY:
         print(constants.MESSAGE_DRAW_PLAY)
