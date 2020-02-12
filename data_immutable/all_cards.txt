@@ -1,4 +1,4 @@
-2 of Spades 
+2 of Spades
 3 of Spades
 4 of Spades
 5 of Spades
@@ -11,7 +11,7 @@ J of Spades
 Q of Spades
 K of Spades
 A of Spades
-2 of Hearts 
+2 of Hearts
 3 of Hearts
 4 of Hearts
 5 of Hearts
@@ -24,7 +24,7 @@ J of Hearts
 Q of Hearts
 K of Hearts
 A of Hearts
-2 of Clubs 
+2 of Clubs
 3 of Clubs
 4 of Clubs
 5 of Clubs
@@ -37,7 +37,7 @@ J of Clubs
 Q of Clubs
 K of Clubs
 A of Clubs
-2 of Diamonds 
+2 of Diamonds
 3 of Diamonds
 4 of Diamonds
 5 of Diamonds
