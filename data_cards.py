@@ -5,7 +5,7 @@ import constants
 
 # Copy cards from all_cards.txt to cards_in_deck.txt to populate the deck
 def populateDeck():
-    data_read_write.writeToFile(getAllCards(), constants.DATA_DECK)
+    data_read_write.writeToFile(getAllCards(), constants.DECK_CARDS)
 
 
 def getAllCards():
@@ -46,25 +46,25 @@ def getRandomCard():
 
 
 def countCardsInDeck():
-    amountCards = data_read_write.countContent(constants.COUNTER_CARDS, constants.DATA_DECK)
+    amountCards = data_read_write.countContent(constants.COUNTER_CARDS, constants.DECK_CARDS)
     return amountCards
 
 
 def getCardAtIndex(cardIndex):
-    doc = open(constants.DATA_DECK, "r")
+    doc = open(constants.DECK_CARDS, "r")
     all_lines = doc.readlines()
     return all_lines[cardIndex].strip("\n")
 
 
 def removeCardFromDeck(card):
-    deck = open(constants.DATA_DECK, "r")
+    deck = open(constants.DECK_CARDS, "r")
     cards_in_deck = deck.readlines()
 
-    data_read_write.writeToFile("", constants.DATA_DECK)
+    data_read_write.writeToFile("", constants.DECK_CARDS)
 
     for line in cards_in_deck:
         if card not in line:
-            new_deck = open(constants.DATA_DECK, "a")
+            new_deck = open(constants.DECK_CARDS, "a")
             new_deck.write(line)
 
 

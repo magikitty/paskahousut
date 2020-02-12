@@ -1,6 +1,6 @@
 # Data files
 DATA_ALL_CARDS = "data_immutable/all_cards.txt"
-DATA_DECK = "data_mutable/cards_in_deck.txt"
+DECK_CARDS = "data_mutable/cards_in_deck.txt"
 DATA_PLAYER_NAME = "data_mutable/player_name.txt"
 COUNTER_CARDS = "of"
 HAND_PLAYER = "data_mutable/player_hand.txt"
