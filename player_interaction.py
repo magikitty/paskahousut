@@ -23,8 +23,12 @@ def playerAction(player_command):
             print("You don't have any cards left!") # debugging
     # elif player_command == "d":
     elif player_command == constants.ACTION_DRAW_PLAY:
-        print(constants.MESSAGE_DRAW_PLAY)
-        drawCardAndPlay()
+        if len(data_cards.cardList(constants.DECK_CARDS)) > 0:
+            print(constants.MESSAGE_DRAW_PLAY)
+            drawCardAndPlay()
+        else:
+            print("There are no cards left in the deck. Do something else.") # debugging
+            processPlayerTurn()
     # elif player_command == "u":
     elif player_command == constants.ACTION_PICK_PILE:
         print(constants.MESSAGE_PICK_PILE)
