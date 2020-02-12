@@ -62,24 +62,18 @@ def fourOfAKind():
         return four_of_a_kind
 
 
-def winCheck(current_player_hand, other_player_hand):
+def winCheck():
     winner = ""
-    pile_cards = data_cards.cardList(constants.PILE_CARDS)
-    current_player_hand = data_cards.cardList(current_player_hand)
-    other_player_hand = data_cards.cardList(other_player_hand)
+    deck_cards = data_cards.cardList(constants.DECK_CARDS)
+    player_hand = data_cards.cardList(constants.HAND_PLAYER)
+    computer_hand = data_cards.cardList(constants.HAND_COMPUTER)
 
-    if len(pile_cards) == 0 and len(current_player_hand) == 0:
-        if current_player_hand == data_cards.cardList(constants.HAND_PLAYER):
-            winner = "human"
-        elif current_player_hand == data_cards.cardList(constants.HAND_COMPUTER):
-            winner = "computer"
+    if len(deck_cards) == 0 and len(player_hand) == 0:
+        print("player hand and pile 0")   # debugging
+        winner = "human"
         # Skip current player turn
-
-    elif len(pile_cards) == 0 and len(other_player_hand) == 0:
-        if other_player_hand == data_cards.cardList(constants.HAND_PLAYER):
-            winner = "human"
-        elif other_player_hand == data_cards.cardList(constants.HAND_COMPUTER):
-            winner = "computer"
+    elif len(deck_cards) == 0 and len(computer_hand) == 0:
+        winner = "computer"
         # Skip current player turn
 
     print("the winner is", winner)   # debugging
