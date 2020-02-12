@@ -10,6 +10,28 @@ import rules
 import first_player
 
 
+# Game() calls the functions that make the game run
+def Game():
+    ensureMutableDataExists()
+    data_read_write.clearFile(constants.HAND_PLAYER)
+    data_read_write.clearFile(constants.HAND_COMPUTER)
+    data_read_write.clearFile(constants.PILE_CARDS)
+    data_cards.populateDeck()
+
+    welcomePlayer()
+
+    data_cards.dealCardToPlayer()
+    data_cards.dealCardToPlayer()
+    data_cards.dealCardToPlayer()
+    data_cards.dealCardToComputer()
+    data_cards.dealCardToComputer()
+    data_cards.dealCardToComputer()
+    data_cards.dealCardToComputer()
+
+    print("player first is", first_player.playerGoesFirst())        # debugging
+    GameLoop(first_player.playerGoesFirst())
+
+
 def ensureMutableDataExists():
     data_read_write.ensureDirectoryExists("data_mutable")
     data_read_write.ensureFileExists("data_mutable/cards_in_deck.txt")
@@ -67,30 +89,6 @@ def PlayerTurn():
 def ComputerTurn():
     print(constants.MESSAGE_COMPUTER_TURN)
     data_cards.dealCardToComputer()
-
-
-# Game() calls the functions that make the game run
-def Game():
-    ensureMutableDataExists()
-    data_read_write.clearFile(constants.HAND_PLAYER)
-    data_read_write.clearFile(constants.HAND_COMPUTER)
-    data_read_write.clearFile(constants.PILE_CARDS)
-    data_cards.populateDeck()
-
-    welcomePlayer()
-    # player_first = first_player.playerGoesFirst()
-    # print("Player goes first is", player_first)
-
-    data_cards.dealCardToPlayer()
-    data_cards.dealCardToPlayer()
-    data_cards.dealCardToPlayer()
-    data_cards.dealCardToComputer()
-    data_cards.dealCardToComputer()
-    data_cards.dealCardToComputer()
-    data_cards.dealCardToComputer()
-
-    print("player first is", first_player.playerGoesFirst())        # debugging
-    GameLoop(first_player.playerGoesFirst())
 
 
 # Entry point function
