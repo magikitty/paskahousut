@@ -12,10 +12,8 @@ import first_player
 
 # Game() calls the functions that make the game run
 def Game():
-    ensureMutableDataExists()
-    data_read_write.clearFile(constants.HAND_PLAYER)
-    data_read_write.clearFile(constants.HAND_COMPUTER)
-    data_read_write.clearFile(constants.PILE_CARDS)
+    data_read_write.ensureMutableDataExists()
+    data_read_write.ensureFilesClear()
     data_cards.populateDeck()
 
     welcomePlayer()
@@ -32,15 +30,6 @@ def Game():
     GameLoop(first_player.playerGoesFirst())
 
 
-def ensureMutableDataExists():
-    data_read_write.ensureDirectoryExists("data_mutable")
-    data_read_write.ensureFileExists("data_mutable/cards_in_deck.txt")
-    data_read_write.ensureFileExists("data_mutable/cards_in_pile.txt")
-    data_read_write.ensureFileExists("data_mutable/computer_hand.txt")
-    data_read_write.ensureFileExists("data_mutable/player_hand.txt")
-    data_read_write.ensureFileExists("data_mutable/player_name.txt")
-
-
 def welcomePlayer():
     print(constants.MESSAGE_WELCOME)
     GetSaveName()
@@ -55,25 +44,22 @@ def GetSaveName():
 
 # GameLoop alternates between the player's and computer's turn
 def GameLoop(player_first):
-    print("The game loop has started.") # debugging
-    game_over = False
 
-    while game_over == False:
-        # print("The game is not over!") # debugging
+    while rules.winCheck() == "":
         if player_first == True:
-            for _ in range(0, 6): # debugging: limited game to six turns
-                player_interaction.displayPileTopCard()
-                PlayerTurn()
-                ComputerTurn()
+            player_interaction.displayPileTopCard()
+            PlayerTurn()
+            rules.winCheck()
+            ComputerTurn()
+            rules.winCheck()
         elif player_first == False:
-            for _ in range(0, 6): # debugging: limited game to six turns
-                # player_interaction.displayPileTopCard()
-                ComputerTurn()
-                PlayerTurn()
-        break   # debugging
-    
-    game_over = True
-    print("The game is over!") # debugging
+            # player_interaction.displayPileTopCard()
+            ComputerTurn()
+            rules.winCheck()
+            PlayerTurn()
+            rules.winCheck()
+
+    print("The game is over!", rules.winCheck(), "has won the game!") # debugging
 
 
 # PlayerTurn starts player's turn
