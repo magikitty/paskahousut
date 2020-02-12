@@ -5,34 +5,6 @@ import rules
 import value_cards
 
 
-# adding line numbers to cards
-def numberedCardList(cards_to_number):
-    for i in range(0, len(cards_to_number)):
-        num = i + 1
-        print(str(num) + ")", cards_to_number[i])
-
-
-def cardListPlayer():
-    return data_cards.cardList(constants.HAND_PLAYER)
-
-
-def displayPlayerHandNumbered():
-    print(constants.MESSAGE_SHOW_HAND)
-    # card_list = (data_read_write.readFromFile(constants.HAND_PLAYER).split("\n"))
-    numberedCardList(data_cards.tidyList(cardListPlayer()))
-
-
-def getInputCard():
-    player_cards = cardListPlayer()
-    card_number_valid = False
-
-    while card_number_valid == False: 
-        card_number = int(input(constants.MESSAGE_CHOOSE_CARD_TO_PLAY))
-        if 0 < card_number <= len(player_cards):
-            card_played = player_cards[card_number - 1]
-            return card_played
-
-
 def playCard():
     ## DISPLAY
     displayPlayerHandNumbered()
@@ -58,13 +30,50 @@ def playCard():
         print(constants.MESSAGE_PLAYED_CARD, card_play)
         if card_play_value_int == 10:
             rules.foldPile()
+            processPlayerTurn()
         else:
             data_read_write.addToFile("\n" + card_play, constants.PILE_CARDS)
             if rules.fourOfAKind() == True:
                 rules.foldPile()
+                processPlayerTurn()
     else:
         print(constants.MESSAGE_CANNOT_PLAY_CARD)
         processPlayerTurn()
+
+
+def displayPlayerHandNumbered():
+    print(constants.MESSAGE_SHOW_HAND)
+    # card_list = (data_read_write.readFromFile(constants.HAND_PLAYER).split("\n"))
+    numberedCardList(data_cards.tidyList(cardListPlayer()))
+
+
+def displayPileTopCard():
+    card_pile_top = createPileTopCard()
+    if card_pile_top != "0":
+        print(constants.MESSAGE_TOP_CARD_IN_PILE)
+        print(card_pile_top)
+
+
+def getInputCard():
+    player_cards = cardListPlayer()
+    card_number_valid = False
+
+    while card_number_valid == False: 
+        card_number = int(input(constants.MESSAGE_CHOOSE_CARD_TO_PLAY))
+        if 0 < card_number <= len(player_cards):
+            card_played = player_cards[card_number - 1]
+            return card_played
+
+
+def cardListPlayer():
+    return data_cards.cardList(constants.HAND_PLAYER)
+
+
+# adding line numbers to cards
+def numberedCardList(cards_to_number):
+    for i in range(0, len(cards_to_number)):
+        num = i + 1
+        print(str(num) + ")", cards_to_number[i])
 
 
 def drawCardAndPlay():
@@ -81,6 +90,7 @@ def drawCardAndPlay():
         print(constants.MESSAGE_PLAYED_CARD, card_drawn)
         if card_play_value_int == 10:
             rules.foldPile()
+            processPlayerTurn()
         else:
             data_read_write.addToFile("\n" + card_drawn, constants.PILE_CARDS)
     else:
@@ -95,15 +105,8 @@ def pickUpAllCardsInPile():
     print(constants.MESSAGE_PICK_PILE)
 
 
-def getInputAction():
-    print(constants.MESSAGE_INSTRUCTIONS_INTERACTION)
-
-    player_command_valid = False
-
-    while player_command_valid == False: 
-        player_command = input(constants.MESSAGE_CHOOSE_ACTION).lower()
-        if player_command == "s" or player_command == "p" or player_command == "d" or player_command == "i" or player_command == "u":
-            return player_command
+def processPlayerTurn():
+    playerAction(getInputAction())
 
 
 def playerAction(player_command):
@@ -125,6 +128,17 @@ def playerAction(player_command):
     # elif player_command == "i":
     elif player_command == constants.ACTION_ALL_CARDS_IN_PILE:
         displayPileNumbered()
+
+
+def getInputAction():
+    print(constants.MESSAGE_INSTRUCTIONS_INTERACTION)
+
+    player_command_valid = False
+
+    while player_command_valid == False: 
+        player_command = input(constants.MESSAGE_CHOOSE_ACTION).lower()
+        if player_command == "s" or player_command == "p" or player_command == "d" or player_command == "i" or player_command == "u":
+            return player_command
 
 
 def createPileList():
@@ -165,13 +179,8 @@ def cardUnderThree():
     return "0"
 
 
-def displayPileTopCard():
-    card_pile_top = createPileTopCard()
-    if card_pile_top != "0":
-        print(constants.MESSAGE_TOP_CARD_IN_PILE)
-        print(card_pile_top)
 
 
 
-def processPlayerTurn():
-    playerAction(getInputAction())
+
+
