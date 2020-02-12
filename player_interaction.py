@@ -20,21 +20,21 @@ def playerAction(player_command):
             print(constants.MESSAGE_PLAY_CARD)
             playCard()
         else:
-            print("You don't have any cards left!") # debugging
+            print(constants.MESSAGE_EMPTY_HAND)
     # elif player_command == "d":
     elif player_command == constants.ACTION_DRAW_PLAY:
         if len(data_cards.cardList(constants.DECK_CARDS)) > 0:
             print(constants.MESSAGE_DRAW_PLAY)
             drawCardAndPlay()
         else:
-            print("There are no cards left in the deck. Do something else.") # debugging
+            print(constants.MESSAGE_EMPTY_DECK)
             processPlayerTurn()
     # elif player_command == "u":
     elif player_command == constants.ACTION_PICK_PILE:
         if len(data_cards.cardList(constants.PILE_CARDS)) > 0:
             pickUpAllCardsInPile()
         else:
-            print("There are no cards in the pile. Do something else.") # debugging
+            print(constants.MESSAGE_EMPY_PILE)
             processPlayerTurn()
     # elif player_command == "i":
     elif player_command == constants.ACTION_ALL_CARDS_IN_PILE:
