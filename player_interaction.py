@@ -63,7 +63,7 @@ def playCard():
     card_play_value_int = value_cards.cardValueToInt(card_play)
 
     ## PILE
-    card_pile = data_pile_cards.createPileTopCard()
+    card_pile = data_pile_cards.getPileTopCard()
     card_pile_value_int = value_cards.cardValueToInt(card_pile)
     # If top card in pile is 3
     if card_pile_value_int == 3:
@@ -115,7 +115,7 @@ def drawCardAndPlay():
     data_cards.removeCardFromDeck(card_drawn)
     print(constants.MESSAGE_DRAW_CARD + card_drawn)
     card_play_value_int = value_cards.cardValueToInt(card_drawn)
-    card_pile_value_int = value_cards.cardValueToInt(data_pile_cards.createPileTopCard())
+    card_pile_value_int = value_cards.cardValueToInt(data_pile_cards.getPileTopCard())
 
     player_can_play_card = rules.checkCanPlayCard(card_play_value_int, card_pile_value_int)
 

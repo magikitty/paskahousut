@@ -45,7 +45,7 @@ def foldPile():
 
 
 def fourOfAKind():
-    pile_list = data_pile_cards.createPileList()
+    pile_list = data_pile_cards.getPileList()
     pile_list.reverse()
     four_of_a_kind = False
     counter = 4
