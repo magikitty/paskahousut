@@ -1,13 +1,15 @@
 # Import packages
-import random
+import constants
+import computer_action
 import data_cards
+import data_pile_cards
 import data_player_name
 import data_read_write
-import player_interaction
-import constants
-import value_cards
-import rules
 import first_player
+import player_interaction
+import value_cards
+import random
+import rules
 
 
 # Game() calls the functions that make the game run
@@ -47,13 +49,13 @@ def GameLoop(player_first):
 
     while rules.winCheck() == "":
         if player_first == True:
-            player_interaction.displayPileTopCard()
+            data_pile_cards.displayPileTopCard()
             PlayerTurn()
             rules.winCheck()
             ComputerTurn()
             rules.winCheck()
         elif player_first == False:
-            # player_interaction.displayPileTopCard()
+            # player_interactiondata_pile_cards.displayPileTopCard()
             ComputerTurn()
             rules.winCheck()
             PlayerTurn()
@@ -67,7 +69,7 @@ def PlayerTurn():
     print(constants.MESSAGE_PLAYER_TURN)
     data_cards.dealCardToPlayer()
     player_interaction.displayPlayerHandNumbered()
-    player_interaction.displayPileTopCard()
+    data_pile_cards.displayPileTopCard()
     player_interaction.processPlayerTurn()
 
 
@@ -79,3 +81,4 @@ def ComputerTurn():
 
 # Entry point function
 Game()
+# computer_action.computerPlayerCanPlayCard()

@@ -1,5 +1,6 @@
 import constants
 import data_cards
+import data_pile_cards
 import data_read_write
 import player_interaction
 import value_cards
@@ -44,7 +45,7 @@ def foldPile():
 
 
 def fourOfAKind():
-    pile_list = player_interaction.createPileList()
+    pile_list = data_pile_cards.createPileList()
     pile_list.reverse()
     four_of_a_kind = False
     counter = 4
