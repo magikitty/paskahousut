@@ -91,3 +91,9 @@ def tidyList(list_to_tidy):
         if len(list_to_tidy[i]) > 0:
             clean_list.append(list_to_tidy[i])
     return clean_list
+
+# adding line numbers to cards
+def numberedCardList(cards_to_number):
+    for i in range(0, len(cards_to_number)):
+        num = i + 1
+        print(str(num) + ")", cards_to_number[i])
