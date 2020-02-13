@@ -7,22 +7,32 @@ import rules
 import value_cards
 
 
+def processComputerTurn():
+    played_card = playCardComputer()
+    if played_card == False:
+        # Roll 50/50 chance of:
+        # Draw random card and play or
+        pickUpPileComputer()
+
+
 def playCardComputer():
-    if computerCardToPlay() != constants.ERROR_NO_CARD_TO_PLAY:
-        card_play = computerCardToPlay()
+    card_play = cardToPlayComputer()
+    if card_play != constants.ERROR_NO_CARD_TO_PLAY:
         data_cards.removeCardFromHand(card_play, constants.HAND_COMPUTER)
         print(constants.MESSAGE_COMPUTER_PLAYED_CARD, card_play)
         if value_cards.cardValueToInt(card_play) == 10:
             rules.foldPile()
-            # Write function to start computer's turn again
+            processComputerTurn()
         else:
             data_read_write.addToFile("\n" + card_play, constants.PILE_CARDS)
             if rules.fourOfAKind() == True:
                 rules.foldPile()
-                # Write function to start computer's turn again
+                processComputerTurn()
+        return True
+    return False
 
 
-def computerCardToPlay():
+def cardToPlayComputer():
     # Get list of computer hand cards
     hand_computer = data_cards.cardList(constants.HAND_COMPUTER)
     hand_copy = []
