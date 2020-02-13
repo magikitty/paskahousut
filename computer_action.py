@@ -65,6 +65,28 @@ def cardToPlayComputer():
     return constants.ERROR_NO_CARD_TO_PLAY
 
 
+def drawPlayCardComputer():
+    card_drawn = data_cards.getRandomCard()
+    data_cards.removeCardFromDeck(card_drawn)
+    print("Drew card:", card_drawn)     # debugging
+    card_pile = data_pile_cards.getPileTopCard()
+
+    card_drawn_int = value_cards.cardValueToInt(card_drawn)
+    card_pile_int = value_cards.cardValueToInt(card_pile)
+
+    computer_can_play_card = rules.checkCanPlayCard(card_drawn_int, card_pile_int)
+    if computer_can_play_card == True:
+        print("computer played the card:", card_drawn)     # debugging
+        if card_drawn_int == 10:
+            rules.foldPile()
+            processComputerTurn()
+        else:
+            data_read_write.addToFile("\n" + card_drawn, constants.PILE_CARDS)
+    else:
+        data_read_write.addToFile("\n" + card_drawn, constants.HAND_COMPUTER)
+        pickUpPileComputer()
+
+
 def pickUpPileComputer():
     pile_cards = data_read_write.readFromFile(constants.PILE_CARDS)
     data_read_write.addToFile(pile_cards, constants.HAND_COMPUTER)
