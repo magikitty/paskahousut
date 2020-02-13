@@ -6,7 +6,7 @@ import rules
 import value_cards
 
 
-def computerPlayerCanPlayCard():
+def computerCardToPlay():
     # Get list of computer hand cards
     hand_computer = data_cards.cardList(constants.HAND_COMPUTER)
     hand_copy = []
