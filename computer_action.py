@@ -11,8 +11,11 @@ def processComputerTurn():
     played_card = playCardComputer()
     if played_card == False:
         # Roll 50/50 chance of:
-        # Draw random card and play or
-        pickUpPileComputer()
+        num = random.randint(0, 1)
+        if num == 0:
+            drawPlayCardComputer()
+        else:
+            pickUpPileComputer()
 
 
 def playCardComputer():
@@ -89,6 +92,6 @@ def drawPlayCardComputer():
 
 def pickUpPileComputer():
     pile_cards = data_read_write.readFromFile(constants.PILE_CARDS)
-    data_read_write.addToFile(pile_cards, constants.HAND_COMPUTER)
+    data_read_write.addToFile("\n" + pile_cards, constants.HAND_COMPUTER)
     data_read_write.clearFile(constants.PILE_CARDS)
     print("Computer has picked up all the cards in the pile.")  # debugging
