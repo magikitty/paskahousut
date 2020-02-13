@@ -68,15 +68,15 @@ def removeCardFromDeck(card):
             new_deck.write(line)
 
 
-def removeCardFromPlayerHand(card):
-    hand_player = open(constants.HAND_PLAYER, "r")
+def removeCardFromHand(card, hand_file):
+    hand_player = open(hand_file, "r")
     cards_in_hand = hand_player.readlines()
 
-    data_read_write.writeToFile("", constants.HAND_PLAYER)
+    data_read_write.writeToFile("", hand_file)
 
     for line in cards_in_hand:
         if card not in line:
-            new_hand_player = open(constants.HAND_PLAYER, "a")
+            new_hand_player = open(hand_file, "a")
             new_hand_player.write(line)
 
 

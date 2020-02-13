@@ -74,7 +74,7 @@ def playCard():
     player_can_play_card = rules.checkCanPlayCard(card_play_value_int, card_pile_value_int)
 
     if player_can_play_card == True:
-        data_cards.removeCardFromPlayerHand(card_play)
+        data_cards.removeCardFromHand(card_play, constants.HAND_PLAYER)
         print(constants.MESSAGE_PLAYED_CARD, card_play)
         if card_play_value_int == 10:
             rules.foldPile()
@@ -120,7 +120,7 @@ def drawCardAndPlay():
     player_can_play_card = rules.checkCanPlayCard(card_play_value_int, card_pile_value_int)
 
     if player_can_play_card == True:
-        data_cards.removeCardFromPlayerHand(card_drawn)
+        data_cards.removeCardFromHand(card_drawn, constants.HAND_PLAYER)
         print(constants.MESSAGE_PLAYED_CARD, card_drawn)
         if card_play_value_int == 10:
             rules.foldPile()
