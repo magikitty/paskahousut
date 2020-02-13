@@ -53,3 +53,10 @@ def computerCardToPlay():
 
     print("ERROR no card to play found")    # debugging
     return constants.ERROR_NO_CARD_TO_PLAY
+
+
+def pickUpPileComputer():
+    pile_cards = data_read_write.readFromFile(constants.PILE_CARDS)
+    data_read_write.addToFile(pile_cards, constants.HAND_COMPUTER)
+    data_read_write.clearFile(constants.PILE_CARDS)
+    print("Computer has picked up all the cards in the pile.")  # debugging
