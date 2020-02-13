@@ -6,32 +6,32 @@ import player_interaction
 import value_cards
 
 
-def checkCanPlayCard(card_to_play, card_pile_top):
-    if card_pile_top == 7:
-        if card_to_play <= 7:
+def checkCanPlayCard(card_to_play_int, card_pile_top_int):
+    if card_pile_top_int == 7:
+        if card_to_play_int <= 7:
             can_play_card = True
         else:
             can_play_card = False
         return can_play_card
 
     else:
-        if card_to_play == 2:
+        if card_to_play_int == 2:
             can_play_card = True
 
-        elif card_to_play == 3:
-            if card_pile_top <= 13:
+        elif card_to_play_int == 3:
+            if card_pile_top_int <= 13:
                 can_play_card = True
             else:
                 can_play_card = False
 
-        elif card_to_play == 7 or card_to_play == 10:
-            if card_pile_top <= 13:
+        elif card_to_play_int == 7 or card_to_play_int == 10:
+            if card_pile_top_int <= 13:
                 can_play_card = True
             else:
                 can_play_card = False
 
         else:
-            if card_to_play >= card_pile_top:
+            if card_to_play_int >= card_pile_top_int:
                 can_play_card = True
             else:
                 can_play_card = False
