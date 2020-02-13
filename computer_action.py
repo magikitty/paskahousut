@@ -10,7 +10,6 @@ import value_cards
 def processComputerTurn():
     played_card = playCardComputer()
     if played_card == False:
-        # Roll 50/50 chance of:
         num = random.randint(0, 1)
         if num == 0:
             drawPlayCardComputer()
@@ -20,7 +19,7 @@ def processComputerTurn():
 
 def playCardComputer():
     card_play = cardToPlayComputer()
-    if card_play != constants.ERROR_NO_CARD_TO_PLAY:
+    if card_play != constants.INTERNAL_NO_CARD_TO_PLAY:
         data_cards.removeCardFromHand(card_play, constants.HAND_COMPUTER)
         print(constants.MESSAGE_COMPUTER_PLAYED_CARD, card_play)
         if value_cards.cardValueToInt(card_play) == 10:
@@ -65,7 +64,7 @@ def cardToPlayComputer():
             return card_to_play
 
     print("ERROR no card to play found")    # debugging
-    return constants.ERROR_NO_CARD_TO_PLAY
+    return constants.INTERNAL_NO_CARD_TO_PLAY
 
 
 def drawPlayCardComputer():
@@ -79,7 +78,7 @@ def drawPlayCardComputer():
 
     computer_can_play_card = rules.checkCanPlayCard(card_drawn_int, card_pile_int)
     if computer_can_play_card == True:
-        print("computer played the card:", card_drawn)     # debugging
+        print(constants.MESSAGE_COMPUTER_PLAYED_CARD, card_drawn)
         if card_drawn_int == 10:
             rules.foldPile()
             processComputerTurn()
@@ -94,4 +93,4 @@ def pickUpPileComputer():
     pile_cards = data_read_write.readFromFile(constants.PILE_CARDS)
     data_read_write.addToFile("\n" + pile_cards, constants.HAND_COMPUTER)
     data_read_write.clearFile(constants.PILE_CARDS)
-    print("Computer has picked up all the cards in the pile.")  # debugging
+    print(constants.MESSAGE_COMPUTER_PICK_PILE)
