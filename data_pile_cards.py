@@ -3,7 +3,7 @@ import data_cards
 import data_read_write
 import value_cards
 
-# Move
+
 def displayPileTopCard():
     card_pile_top = createPileTopCard()
     if card_pile_top != "0":
@@ -11,12 +11,11 @@ def displayPileTopCard():
         print(card_pile_top)
 
 
-# Move
 def createPileList():
     pile_list = (data_read_write.readFromFile(constants.PILE_CARDS)).split("\n")
     return data_cards.tidyList(pile_list)
 
-# Move
+
 def displayPileNumbered():
     print(constants.MESSAGE_ALL_CARDS_IN_PILE)
     pile_list = createPileList()
@@ -24,7 +23,7 @@ def displayPileNumbered():
     pile_list.reverse()
     return data_cards.numberedCardList(pile_list)
 
-# Move
+
 def createPileTopCard():
     pile_list = createPileList()
     # return last card in the list, so it is the most recently played card
@@ -36,7 +35,7 @@ def createPileTopCard():
         print(constants.MESSAGE_PILE_EMPTY)
         return empty_pile_list[0]
 
-# Move
+
 def cardUnderThree():
     pile_list = createPileList()
     pile_list.reverse()
