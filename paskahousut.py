@@ -77,8 +77,9 @@ def PlayerTurn():
 def ComputerTurn():
     print(constants.MESSAGE_COMPUTER_TURN)
     data_cards.dealCardToComputer()
+    computer_action.processComputerTurn()
 
 
 # Entry point function
 Game()
-# computer_action.computerPlayerCanPlayCard()
+
