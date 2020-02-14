@@ -10,6 +10,7 @@ import player_interaction
 import value_cards
 import random
 import rules
+import turn
 
 
 # Game() calls the functions that make the game run
@@ -50,36 +51,18 @@ def GameLoop(player_first):
     while rules.winCheck() == "":
         if player_first == True:
             data_pile_cards.displayPileTopCard()
-            PlayerTurn()
+            turn.playerTurn()
             rules.winCheck()
-            ComputerTurn()
+            turn.computerTurn()
             rules.winCheck()
         elif player_first == False:
-            # player_interactiondata_pile_cards.displayPileTopCard()
-            ComputerTurn()
+            # data_pile_cards.displayPileTopCard()
+            turn.computerTurn()
             rules.winCheck()
-            PlayerTurn()
+            turn.playerTurn()
             rules.winCheck()
 
     print("The game is over!", rules.winCheck(), "has won the game!") # debugging
 
-
-# PlayerTurn starts player's turn
-def PlayerTurn():
-    print(constants.MESSAGE_PLAYER_TURN)
-    data_cards.dealCardToPlayer()
-    player_interaction.displayPlayerHandNumbered()
-    data_pile_cards.displayPileTopCard()
-    player_interaction.processPlayerTurn()
-
-
-# ComputerTurn starts computer's turn
-def ComputerTurn():
-    print(constants.MESSAGE_COMPUTER_TURN)
-    data_cards.dealCardToComputer()
-    computer_action.processComputerTurn()
-
-
 # Entry point function
 Game()
-

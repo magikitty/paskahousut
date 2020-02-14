@@ -4,6 +4,7 @@ import data_pile_cards
 import data_read_write
 import rules
 import value_cards
+import turn
 
 
 def processPlayerTurn():
@@ -79,12 +80,12 @@ def playCard():
         print(constants.MESSAGE_PLAYED_CARD, card_play)
         if card_play_value_int == 10:
             rules.foldPile()
-            processPlayerTurn()
+            turn.playerTurn()
         else:
             data_read_write.addToFile("\n" + card_play, constants.PILE_CARDS)
             if rules.fourOfAKind() == True:
                 rules.foldPile()
-                processPlayerTurn()
+                turn.playerTurn()
     else:
         print(constants.MESSAGE_CANNOT_PLAY_CARD)
         processPlayerTurn()
@@ -126,12 +127,12 @@ def drawCardAndPlay():
         print(constants.MESSAGE_PLAYED_CARD, card_drawn)
         if card_play_value_int == 10:
             rules.foldPile()
-            processPlayerTurn()
+            turn.playerTurn()
         else:
             data_read_write.addToFile("\n" + card_drawn, constants.PILE_CARDS)
             if rules.fourOfAKind() == True:
                 rules.foldPile()
-                processPlayerTurn()
+                turn.playerTurn()
     else:
         data_read_write.addToFile("\n" + card_drawn, constants.HAND_PLAYER)
         pickUpAllCardsInPile()
