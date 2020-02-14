@@ -15,7 +15,7 @@ def playerTurn():
 
 
 # ComputerTurn starts computer's turn
-def ComputerTurn():
+def computerTurn():
     print(constants.MESSAGE_COMPUTER_TURN)
     data_cards.dealCardToComputer()
     computer_action.processComputerTurn()
