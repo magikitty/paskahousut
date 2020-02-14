@@ -11,10 +11,12 @@ def processComputerTurn():
     played_card = playCardComputer()
     if played_card == False:
         num = random.randint(0, 1)
-        if num == 0:
+        if num == 0 and len(data_cards.cardList(constants.DECK_CARDS)) > 0:
             drawPlayCardComputer()
-        else:
+        elif len(data_cards.cardList(constants.PILE_CARDS)) > 0:
             pickUpPileComputer()
+        else:
+            processComputerTurn()
 
 
 def playCardComputer():
