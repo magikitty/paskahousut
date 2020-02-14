@@ -40,6 +40,7 @@ def playerAction(player_command):
     # elif player_command == "i":
     elif player_command == constants.ACTION_ALL_CARDS_IN_PILE:
         data_pile_cards.displayPileNumbered()
+        processPlayerTurn()
 
 
 def getInputAction():
@@ -128,8 +129,11 @@ def drawCardAndPlay():
             processPlayerTurn()
         else:
             data_read_write.addToFile("\n" + card_drawn, constants.PILE_CARDS)
+            if rules.fourOfAKind() == True:
+                rules.foldPile()
+                processPlayerTurn()
     else:
-        data_read_write.addToFile(card_drawn, constants.HAND_PLAYER)
+        data_read_write.addToFile("\n" + card_drawn, constants.HAND_PLAYER)
         pickUpAllCardsInPile()
 
 
