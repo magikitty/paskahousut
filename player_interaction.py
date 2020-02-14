@@ -99,11 +99,12 @@ def getInputCard():
     player_cards = cardListPlayer()
     card_number_valid = False
 
-    while card_number_valid == False: 
-        card_number = int(input(constants.MESSAGE_CHOOSE_CARD_TO_PLAY))
-        if 0 < card_number <= len(player_cards):
-            card_played = player_cards[card_number - 1]
-            return card_played
+    while card_number_valid == False:
+        choose_card_num = input(constants.MESSAGE_CHOOSE_CARD_TO_PLAY)
+        if choose_card_num.isdigit() == True:
+            if 0 < int(choose_card_num) <= len(player_cards):
+                card_played = player_cards[int(choose_card_num) - 1]
+                return card_played
 
 
 def cardListPlayer():
