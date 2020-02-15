@@ -14,7 +14,7 @@ import turn
 
 
 # Game() calls the functions that make the game run
-def Game():
+def newGame():
     data_read_write.ensureMutableDataExists()
     data_read_write.ensureFilesClear()
     data_cards.populateDeck()
@@ -45,6 +45,10 @@ def GetSaveName():
     data_player_name.setPlayerName(player_name)
 
 
+def continueGame():
+    GameLoop(first_player.playerGoesFirst())
+
+
 # GameLoop alternates between the player's and computer's turn
 def GameLoop(player_first):
 
@@ -64,5 +68,7 @@ def GameLoop(player_first):
 
     print("The game is over!", rules.winCheck(), "has won the game!") # debugging
 
+
 # Entry point function
-Game()
+newGame()
+# continueGame()
