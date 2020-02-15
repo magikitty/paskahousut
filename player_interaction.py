@@ -7,17 +7,21 @@ import value_cards
 import turn
 
 
+# Menu
+def menu():
+    print("It's a little menu!")    # debugging
+    # New game
+    # Continue game
+    # See rules
+
+
 def processPlayerTurn():
     playerAction(getInputAction())
 
 
 def playerAction(player_command):
-    # if player_command == "s":
-    if player_command == constants.ACTION_SHOW_HAND:
-        displayPlayerHandNumbered()
-        processPlayerTurn()
-    # elif player_command == "p":
-    elif player_command == constants.ACTION_PLAY_CARD:
+    # if player_command == "p":
+    if player_command == constants.ACTION_PLAY_CARD:
         if len(data_cards.cardList(constants.HAND_PLAYER)) > 0:
             print(constants.MESSAGE_PLAY_CARD)
             playCard()
@@ -42,6 +46,13 @@ def playerAction(player_command):
     elif player_command == constants.ACTION_ALL_CARDS_IN_PILE:
         data_pile_cards.displayPileNumbered()
         processPlayerTurn()
+    # elif player_command == "s":
+    elif player_command == constants.ACTION_SHOW_HAND:
+        displayPlayerHandNumbered()
+        processPlayerTurn()
+    # elif player_command == "m":
+    elif player_command == constants.ACTION_MENU:
+        menu()
 
 
 def getInputAction():
@@ -51,7 +62,7 @@ def getInputAction():
 
     while player_command_valid == False: 
         player_command = input(constants.MESSAGE_CHOOSE_ACTION).lower()
-        if player_command == "s" or player_command == "p" or player_command == "d" or player_command == "i" or player_command == "u":
+        if player_command == "s" or player_command == "p" or player_command == "d" or player_command == "i" or player_command == "u" or player_command == "m":
             return player_command
 
 
