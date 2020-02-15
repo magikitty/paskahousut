@@ -27,12 +27,12 @@ def playCardComputer():
         print(constants.MESSAGE_COMPUTER_PLAYED_CARD, card_play)
         if value_cards.cardValueToInt(card_play) == 10:
             rules.foldPile()
-            turn.ComputerTurn()
+            turn.computerTurn()
         else:
             data_read_write.addToFile("\n" + card_play, constants.PILE_CARDS)
             if rules.fourOfAKind() == True:
                 rules.foldPile()
-                turn.ComputerTurn()
+                turn.computerTurn()
         return True
     return False
 
@@ -84,7 +84,7 @@ def drawPlayCardComputer():
         print(constants.MESSAGE_COMPUTER_PLAYED_CARD, card_drawn)
         if card_drawn_int == 10:
             rules.foldPile()
-            turn.ComputerTurn()
+            turn.computerTurn()
         else:
             data_read_write.addToFile("\n" + card_drawn, constants.PILE_CARDS)
     else:
