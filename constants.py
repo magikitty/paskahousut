@@ -10,6 +10,7 @@ PILE_CARDS = "data_mutable/cards_in_pile.txt"
 # New game messages
 MESSAGE_ENTER_NAME = "Enter your name: "
 MESSAGE_WELCOME = "This is a simple game of Paskahousut. Get ready to play!"
+MESSAGE_WELCOME_BACK = "Welcome back to your last game of Paskahousut,"
 
 MESSAGE_INSTRUCTIONS_INTERACTION = (
     "\n"

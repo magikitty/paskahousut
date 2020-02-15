@@ -46,6 +46,7 @@ def GetSaveName():
 
 
 def continueGame():
+    print(constants.MESSAGE_WELCOME_BACK, data_player_name.getPlayerName() + "!")
     GameLoop(first_player.playerGoesFirst())
 
 
@@ -54,7 +55,7 @@ def GameLoop(player_first):
 
     while rules.winCheck() == "":
         if player_first == True:
-            data_pile_cards.displayPileTopCard()
+            # data_pile_cards.displayPileTopCard()
             turn.playerTurn()
             rules.winCheck()
             turn.computerTurn()
@@ -70,5 +71,5 @@ def GameLoop(player_first):
 
 
 # Entry point function
-newGame()
-# continueGame()
+# newGame()
+continueGame()
