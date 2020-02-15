@@ -50,6 +50,10 @@ def countCardsInDeck():
     return amountCards
 
 
+def displayAmountCardsInDeck():
+    print(constants.MESSAGE_AMOUNT_CARDS_DECK, countCardsInDeck())
+
+
 def getCardAtIndex(cardIndex):
     doc = open(constants.DECK_CARDS, "r")
     all_lines = doc.readlines()

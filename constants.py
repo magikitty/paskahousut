@@ -37,6 +37,7 @@ MESSAGE_SHOW_HAND = "\nHere are your cards:\n"
 
 # Status messages for human player
 MESSAGE_ALL_CARDS_IN_PILE = "\nHere are all the cards in the pile. Card number 1 (at the top of the pile) is the most recent card played."
+MESSAGE_AMOUNT_CARDS_DECK = "\nThe number of cards in the deck is:"
 MESSAGE_CANNOT_PLAY_CARD = "\nYou cannot play that card. Choose another card or do something else."
 MESSAGE_CHOOSE_ACTION = "\nWhat do you want to do? "
 MESSAGE_CHOOSE_CARD_TO_PLAY = "\nEnter the number of the card you want to play: "
