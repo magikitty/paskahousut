@@ -35,18 +35,22 @@ MESSAGE_PICK_PILE = "\nYou are picking up all the cards in the pile"
 MESSAGE_PLAY_CARD = "\nYou are playing a card from your hand"
 MESSAGE_SHOW_HAND = "\nHere are your cards:\n"
 
-# Status messages for human player
-MESSAGE_ALL_CARDS_IN_PILE = "\nHere are all the cards in the pile. Card number 1 (at the top of the pile) is the most recent card played."
-MESSAGE_AMOUNT_CARDS_DECK = "\nThe number of cards in the deck is:"
+# Status messages for human player action
 MESSAGE_CANNOT_PLAY_CARD = "\nYou cannot play that card. Choose another card or do something else."
 MESSAGE_CHOOSE_ACTION = "\nWhat do you want to do? "
 MESSAGE_CHOOSE_CARD_TO_PLAY = "\nEnter the number of the card you want to play: "
 MESSAGE_EMPTY_DECK = "\nThere are no cards left in the deck. Do something else."
-MESSAGE_EMPTY_HAND = "\nYou don't have any cards left in your hand!"
 MESSAGE_EMPY_PILE = "\nThere are no cards in the pile. Do something else."
 MESSAGE_FOLD_PILE = "\nThe pile has been folded."
-MESSAGE_PILE_EMPTY = "\nThere are no cards in the pile"
 MESSAGE_PLAYED_CARD = "\nYou play the card:"
+
+# Status messages for human player
+MESSAGE_ALL_CARDS_IN_PILE = "\nHere are all the cards in the pile. Card number 1 (at the top of the pile) is the most recent card played."
+MESSAGE_AMOUNT_CARDS_DECK = "\nThe number of cards in the deck is:"
+MESSAGE_CARD_UNDER_3 = "card to beat is:"
+MESSAGE_EMPTY_HAND = "\nYou don't have any cards left in your hand!"
+MESSAGE_NO_CARDS_UNDER_3 = "(There are no cards under 3)"
+MESSAGE_PILE_EMPTY = "\nThere are no cards in the pile"
 MESSAGE_PLAYER_TURN = "\nIt's the player's turn!"
 MESSAGE_TOP_CARD_IN_PILE = "\nHere is the card at the top of the pile:"
 

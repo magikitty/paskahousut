@@ -7,8 +7,9 @@ import value_cards
 def displayPileTopCard():
     card_pile_top = getPileTopCard()
     if card_pile_top != "0":
-        print(constants.MESSAGE_TOP_CARD_IN_PILE)
-        print(card_pile_top)
+        print(constants.MESSAGE_TOP_CARD_IN_PILE, "\n" + card_pile_top)
+        if value_cards.cardValueToInt(card_pile_top) == 3:
+            displayCardUnderThree()
 
 
 def getPileList():
@@ -34,6 +35,14 @@ def getPileTopCard():
         empty_pile_list = ["0"]
         print(constants.MESSAGE_PILE_EMPTY)
         return empty_pile_list[0]
+
+
+def displayCardUnderThree():
+    card_under_three = cardUnderThree()
+    if card_under_three == "0":
+        print(constants.MESSAGE_NO_CARDS_UNDER_3)
+    else:
+        print("(" + constants.MESSAGE_CARD_UNDER_3, card_under_three + ")")
 
 
 def cardUnderThree():
