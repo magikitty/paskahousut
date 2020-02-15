@@ -17,7 +17,7 @@ def dealCardToPlayer():
     if len(cardList(constants.DECK_CARDS)) > 0 and testCanDeal(constants.HAND_PLAYER) == True:
         card = getRandomCard()
         print("*** Dealt card to player: " + card)          # debugging
-        data_read_write.addToFile(card + "\n", constants.HAND_PLAYER)
+        data_read_write.addToFile("\n" + card, constants.HAND_PLAYER)
         removeCardFromDeck(card)
 
 
@@ -25,7 +25,7 @@ def dealCardToComputer():
     if testCanDeal(constants.HAND_COMPUTER) == True:
         card = getRandomCard()
         print("~~~ Dealt card to computer: " + card)          # debugging
-        data_read_write.addToFile(card + "\n", constants.HAND_COMPUTER)
+        data_read_write.addToFile("\n" + card, constants.HAND_COMPUTER)
         removeCardFromDeck(card)
 
 
