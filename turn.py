@@ -9,6 +9,7 @@ import player_interaction
 def playerTurn():
     print(constants.MESSAGE_PLAYER_TURN)
     data_cards.dealCardToPlayer()
+    data_cards.displayAmountCardsInDeck()
     player_interaction.displayPlayerHandNumbered()
     data_pile_cards.displayPileTopCard()
     player_interaction.processPlayerTurn()
@@ -18,4 +19,5 @@ def playerTurn():
 def computerTurn():
     print(constants.MESSAGE_COMPUTER_TURN)
     data_cards.dealCardToComputer()
+    data_cards.displayAmountCardsInDeck()
     computer_action.processComputerTurn()
