@@ -13,17 +13,19 @@ MESSAGE_WELCOME = "This is a simple game of Paskahousut. Get ready to play!"
 
 MESSAGE_INSTRUCTIONS_INTERACTION = (
     "\n"
-    "Press S to show cards in your hand.\n"
     "Press P to play a card from your hand.\n" +
     "Press D to draw a card and immediately play it.\n" +
     "Press U to pick up all cards in the pile.\n" +
-    "Press I to inspect the cards in the pile"
+    "Press I to inspect the cards in the pile.\n"
+    "Press S to show cards in your hand.\n"
+    "Press M to open the menu."
     
     )
 
 # Action messages
 ACTION_ALL_CARDS_IN_PILE = "i"
 ACTION_DRAW_PLAY = "d"
+ACTION_MENU = "m"
 ACTION_PICK_PILE= "u"
 ACTION_PLAY_CARD = "p"
 ACTION_SHOW_HAND = "s"
