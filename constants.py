@@ -9,11 +9,13 @@ PILE_CARDS = "data_mutable/cards_in_pile.txt"
 
 # Menu messages
 MESSAGE_MENU_INSTRUCTIONS = (
+    "\n"
     "Press N to start a new game.\n"
     "Press L to load your previous game.\n"
     "Press R to see the game rules.\n"
     "Press Q to quit the game.\n"
 )
+MESSAGE_QUITTING = "Quitting the game. Bye bye!"
 
 # New game messages
 MESSAGE_ENTER_NAME = "Enter your name: "
@@ -58,15 +60,24 @@ MESSAGE_PLAYED_CARD = "\nYou play the card:"
 MESSAGE_ALL_CARDS_IN_PILE = "\nHere are all the cards in the pile. Card number 1 (at the top of the pile) is the most recent card played."
 MESSAGE_AMOUNT_CARDS_DECK = "\nThe number of cards in the deck is:"
 MESSAGE_CARD_UNDER_3 = "card to beat is:"
+MESSAGE_DEALT_CARD = "\nYou have been dealt the card:"
 MESSAGE_EMPTY_HAND = "\nYou don't have any cards left in your hand!"
 MESSAGE_NO_CARDS_UNDER_3 = "(There are no cards under 3)"
 MESSAGE_PILE_EMPTY = "\nThere are no cards in the pile"
-MESSAGE_PLAYER_TURN = "\nIt's the player's turn!"
+MESSAGE_PLAYER_TURN = (
+    "\n~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+    "| It's the player's turn |"
+    "\n~~~~~~~~~~~~~~~~~~~~~~~~~~"
+)
 MESSAGE_TOP_CARD_IN_PILE = "\nHere is the card at the top of the pile:"
 
 # Status messages for computer player
 MESSAGE_COMPUTER_PLAYED_CARD = "\nThe computer has played the card:"
-MESSAGE_COMPUTER_TURN = "\nIt's the computer's turn!"
+MESSAGE_COMPUTER_TURN = (
+    "\n----------------------------\n"
+    "| It's the computer's turn |"
+    "\n----------------------------"
+)
 MESSAGE_COMPUTER_PICK_PILE = "\nComputer has picked up all the cards in the pile."
 
 # Internal Message
