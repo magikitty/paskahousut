@@ -2,7 +2,7 @@ import constants
 import data_cards
 import data_pile_cards
 import data_read_write
-import menu
+import setup_game
 import rules
 import value_cards
 import turn
@@ -45,7 +45,7 @@ def playerAction(player_command):
         processPlayerTurn()
     # elif player_command == "m":
     elif player_command == constants.ACTION_MENU:
-        menu.menu()
+        setup_game.menu()
 
 
 def getInputAction():
