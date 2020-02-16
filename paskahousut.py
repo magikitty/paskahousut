@@ -45,7 +45,7 @@ def GetSaveName():
     data_player_name.setPlayerName(player_name)
 
 
-def continueGame():
+def loadGame():
     print(constants.MESSAGE_WELCOME_BACK, data_player_name.getPlayerName() + "!")
     GameLoop(first_player.playerGoesFirst())
 
