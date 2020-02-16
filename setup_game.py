@@ -15,22 +15,19 @@ import turn
 
 # Menu
 def menu():
-    print("It's a little menu!")    # debugging
     menuAction(menuInput())
 
 
 def menuAction(menu_command):
     if menu_command == "n":
-        print("You are starting a new game")    # debugging
         newGame()
     if menu_command == "l":
-        print("You are loading your game")    # debugging
         loadGame()
     if menu_command == "r":
-        print("You are looking at rules")    # debugging
-        constants.RULES
+        print(constants.RULES)
+        menu()
     if menu_command == "q":
-        print("You are quitting the game")    # debugging
+        print(constants.MESSAGE_QUITTING)
         constants.QUIT_GAME = True
 
 
@@ -60,14 +57,13 @@ def newGame():
     data_cards.dealCardToComputer()
     data_cards.dealCardToComputer()
 
-    print("player first is", first_player.playerGoesFirst())        # debugging
     GameLoop(first_player.playerGoesFirst())
 
 
 def welcomePlayer():
     print(constants.MESSAGE_WELCOME)
     GetSaveName()
-    print("Hello " + data_player_name.getPlayerName() + "!\n")
+    print("Hello", data_player_name.getPlayerName(), "!\n")
 
 
 # Gets the player's name
