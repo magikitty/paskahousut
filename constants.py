@@ -7,6 +7,14 @@ HAND_PLAYER = "data_mutable/player_hand.txt"
 HAND_COMPUTER = "data_mutable/computer_hand.txt"
 PILE_CARDS = "data_mutable/cards_in_pile.txt"
 
+# Menu messages
+MESSAGE_MENU_INSTRUCTIONS = (
+    "Press N to start a new game.\n"
+    "Press L to load your previous game.\n"
+    "Press R to see the game rules.\n"
+    "Press Q to quit the game.\n"
+)
+
 # New game messages
 MESSAGE_ENTER_NAME = "Enter your name: "
 MESSAGE_WELCOME = "This is a simple game of Paskahousut. Get ready to play!"
@@ -14,14 +22,13 @@ MESSAGE_WELCOME_BACK = "Welcome back to your last game of Paskahousut,"
 
 MESSAGE_INSTRUCTIONS_INTERACTION = (
     "\n"
-    "Press P to play a card from your hand.\n" +
-    "Press D to draw a card and immediately play it.\n" +
-    "Press U to pick up all cards in the pile.\n" +
+    "Press P to play a card from your hand.\n"
+    "Press D to draw a card and immediately play it.\n"
+    "Press U to pick up all cards in the pile.\n"
     "Press I to inspect the cards in the pile.\n"
     "Press S to show cards in your hand.\n"
     "Press M to open the menu."
-    
-    )
+)
 
 # Action messages
 ACTION_ALL_CARDS_IN_PILE = "i"
