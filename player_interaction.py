@@ -10,6 +10,20 @@ import turn
 # Menu
 def menu():
     print("It's a little menu!")    # debugging
+    menuAction(menuInput())
+
+
+def menuAction(menu_command):
+    if menu_command == "n":
+        print("You are starting a new game")    # debugging
+    if menu_command == "l":
+        print("You are loading your game")    # debugging
+    if menu_command == "r":
+        print("You are looking at rules")    # debugging
+    if menu_command == "q":
+        print("You are quitting the game")    # debugging
+
+
 def menuInput():
     print(constants.MESSAGE_MENU_INSTRUCTIONS)
     menu_command_valid = False
