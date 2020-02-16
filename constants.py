@@ -74,3 +74,6 @@ INTERNAL_NO_CARD_TO_PLAY = "\nERROR: No card to play found\n"
 
 # Dictionary with card suite values
 card_suite_values = {"Clubs": 1, "Diamonds": 2, "Spades": 3, "Hearts": 4}
+
+# Rules of the game
+RULES = "Here are the rules for Paskahousut: "
