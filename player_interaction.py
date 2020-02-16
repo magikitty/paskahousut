@@ -124,6 +124,11 @@ def drawCardAndPlay():
     card_play_value_int = value_cards.cardValueToInt(card_drawn)
     card_pile_value_int = value_cards.cardValueToInt(data_pile_cards.getPileTopCard())
 
+    # If top card in pile is 3
+    if card_pile_value_int == 3:
+        card_pile_value_string = value_cards.getCardValue(data_pile_cards.cardUnderThree())
+        card_pile_value_int = value_cards.convertValueToInt(card_pile_value_string)
+
     player_can_play_card = rules.checkCanPlayCard(card_play_value_int, card_pile_value_int)
 
     if player_can_play_card == True:
