@@ -17,7 +17,8 @@ def playerTurn():
 
 # ComputerTurn starts computer's turn
 def computerTurn():
-    print(constants.MESSAGE_COMPUTER_TURN)
-    data_cards.dealCardToComputer()
-    data_cards.displayAmountCardsInDeck()
-    computer_action.processComputerTurn()
+    if not constants.QUIT_GAME:
+        print(constants.MESSAGE_COMPUTER_TURN)
+        data_cards.dealCardToComputer()
+        data_cards.displayAmountCardsInDeck()
+        computer_action.processComputerTurn()

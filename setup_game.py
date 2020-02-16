@@ -31,6 +31,7 @@ def menuAction(menu_command):
         constants.RULES
     if menu_command == "q":
         print("You are quitting the game")    # debugging
+        constants.QUIT_GAME = True
 
 
 def menuInput():
@@ -83,20 +84,17 @@ def loadGame():
 # GameLoop alternates between the player's and computer's turn
 def GameLoop(player_first):
 
-    while rules.winCheck() == "":
+    while rules.winCheck() == "" and constants.QUIT_GAME == False:
         if player_first == True:
-            # data_pile_cards.displayPileTopCard()
             turn.playerTurn()
             rules.winCheck()
             turn.computerTurn()
             rules.winCheck()
         elif player_first == False:
-            # data_pile_cards.displayPileTopCard()
             turn.computerTurn()
             rules.winCheck()
             turn.playerTurn()
             rules.winCheck()
 
-    print("The game is over!", rules.winCheck(), "has won the game!") # debugging
-
-# menu()
+    if rules.winCheck() != "":
+        print("The game is over!", rules.winCheck(), "has won the game!") # debugging
