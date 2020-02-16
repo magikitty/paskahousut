@@ -10,9 +10,14 @@ import turn
 # Menu
 def menu():
     print("It's a little menu!")    # debugging
-    # New game
-    # Continue game
-    # See rules
+def menuInput():
+    print(constants.MESSAGE_MENU_INSTRUCTIONS)
+    menu_command_valid = False
+
+    while menu_command_valid == False:
+        menu_command = input("Press the key: ").lower()     # debugging
+        if menu_command == "n" or menu_command == "l" or menu_command == "r" or menu_command == "q":
+            return menu_command
 
 
 def processPlayerTurn():
