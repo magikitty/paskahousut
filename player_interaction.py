@@ -2,36 +2,10 @@ import constants
 import data_cards
 import data_pile_cards
 import data_read_write
+import menu
 import rules
 import value_cards
 import turn
-
-
-# Menu
-def menu():
-    print("It's a little menu!")    # debugging
-    menuAction(menuInput())
-
-
-def menuAction(menu_command):
-    if menu_command == "n":
-        print("You are starting a new game")    # debugging
-    if menu_command == "l":
-        print("You are loading your game")    # debugging
-    if menu_command == "r":
-        print("You are looking at rules")    # debugging
-    if menu_command == "q":
-        print("You are quitting the game")    # debugging
-
-
-def menuInput():
-    print(constants.MESSAGE_MENU_INSTRUCTIONS)
-    menu_command_valid = False
-
-    while menu_command_valid == False:
-        menu_command = input("Press the key: ").lower()     # debugging
-        if menu_command == "n" or menu_command == "l" or menu_command == "r" or menu_command == "q":
-            return menu_command
 
 
 def processPlayerTurn():
@@ -71,7 +45,7 @@ def playerAction(player_command):
         processPlayerTurn()
     # elif player_command == "m":
     elif player_command == constants.ACTION_MENU:
-        menu()
+        menu.menu()
 
 
 def getInputAction():
