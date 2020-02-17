@@ -62,7 +62,7 @@ def newGame():
 
 def welcomePlayer():
     GetSaveName()
-    print("Hello", data_player_name.getPlayerName() + "!")
+    print("\nHello", data_player_name.getPlayerName() + "! Let's play!")
 
 
 # Gets the player's name
@@ -81,15 +81,19 @@ def GameLoop(player_first):
 
     while rules.winCheck() == "" and constants.QUIT_GAME == False:
         if player_first == True:
-            turn.playerTurn()
-            rules.winCheck()
-            turn.computerTurn()
-            rules.winCheck()
+            if turn.playerHasTurn() == True:
+                turn.playerTurn()
+                # rules.winCheck()
+            if turn.playerHasTurn() == True:
+                turn.computerTurn()
+                # rules.winCheck()
         elif player_first == False:
-            turn.computerTurn()
-            rules.winCheck()
-            turn.playerTurn()
-            rules.winCheck()
+            if turn.playerHasTurn() == True:
+                turn.computerTurn()
+                # rules.winCheck()
+            if turn.playerHasTurn() == True:
+                turn.playerTurn()
+                # rules.winCheck()
 
     if rules.winCheck() != "":
-        print("The game is over!", rules.winCheck(), "has won the game!") # debugging
+        print(constants.MESSAGE_GAME_OVER, rules.winCheck() + "!")
