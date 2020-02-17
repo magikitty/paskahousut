@@ -7,19 +7,27 @@ HAND_PLAYER = "data_mutable/player_hand.txt"
 HAND_COMPUTER = "data_mutable/computer_hand.txt"
 PILE_CARDS = "data_mutable/cards_in_pile.txt"
 
+# Menu action messages
+MENU_NEW_GAME = "n"
+MENU_LOAD_GAME = "l"
+MENU_SEE_RULES = "r"
+MENU_QUIT = "q"
+
 # Menu messages
 MESSAGE_MENU_INSTRUCTIONS = (
     "\n"
     "Press N to start a new game.\n"
     "Press L to load your previous game.\n"
     "Press R to see the game rules.\n"
-    "Press Q to quit the game.\n"
+    "Press Q to quit the game."
 )
 MESSAGE_QUITTING = "Quitting the game. Bye bye!"
 
 # New game messages
 MESSAGE_ENTER_NAME = "Enter your name: "
 MESSAGE_WELCOME = "This is a simple game of Paskahousut. Get ready to play!"
+
+# Load game messages
 MESSAGE_WELCOME_BACK = "Welcome back to your last game of Paskahousut,"
 
 MESSAGE_INSTRUCTIONS_INTERACTION = (
@@ -58,7 +66,7 @@ MESSAGE_PLAYED_CARD = "\nYou play the card:"
 
 # Status messages for human player
 MESSAGE_ALL_CARDS_IN_PILE = "\nHere are all the cards in the pile. Card number 1 (at the top of the pile) is the most recent card played."
-MESSAGE_AMOUNT_CARDS_DECK = "\nThe number of cards in the deck is:"
+MESSAGE_AMOUNT_CARDS_DECK = "\nThe number of cards left in the deck is:"
 MESSAGE_CARD_UNDER_3 = "card to beat is:"
 MESSAGE_DEALT_CARD = "\nYou have been dealt the card:"
 MESSAGE_EMPTY_HAND = "\nYou don't have any cards left in your hand!"
@@ -72,13 +80,14 @@ MESSAGE_PLAYER_TURN = (
 MESSAGE_TOP_CARD_IN_PILE = "\nHere is the card at the top of the pile:"
 
 # Status messages for computer player
-MESSAGE_COMPUTER_PLAYED_CARD = "\nThe computer has played the card:"
+MESSAGE_COMPUTER_DREW_CARD = "\nComputer has drawn the card:"
+MESSAGE_COMPUTER_PICK_PILE = "\nComputer has picked up all the cards in the pile."
+MESSAGE_COMPUTER_PLAYED_CARD = "\nComputer has played the card:"
 MESSAGE_COMPUTER_TURN = (
     "\n----------------------------\n"
     "| It's the computer's turn |"
     "\n----------------------------"
 )
-MESSAGE_COMPUTER_PICK_PILE = "\nComputer has picked up all the cards in the pile."
 
 # Internal Message
 INTERNAL_NO_CARD_TO_PLAY = "\nERROR: No card to play found\n"
