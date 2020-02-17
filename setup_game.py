@@ -57,27 +57,27 @@ def newGame():
     data_cards.dealCardToComputer()
     data_cards.dealCardToComputer()
 
-    GameLoop(first_player.playerGoesFirst())
+    gameLoop(first_player.playerGoesFirst())
 
 
 def welcomePlayer():
-    GetSaveName()
+    getSaveName()
     print("\nHello", data_player_name.getPlayerName() + "! Let's play!")
 
 
 # Gets the player's name
-def GetSaveName():
+def getSaveName():
     player_name = input(constants.MESSAGE_ENTER_NAME)
     data_player_name.setPlayerName(player_name)
 
 
 def loadGame():
     print(constants.MESSAGE_WELCOME_BACK, data_player_name.getPlayerName() + "!")
-    GameLoop(first_player.playerGoesFirst())
+    gameLoop(first_player.playerGoesFirst())
 
 
 # GameLoop alternates between the player's and computer's turn
-def GameLoop(player_first):
+def gameLoop(player_first):
 
     while rules.winCheck() == "" and constants.QUIT_GAME == False:
         if player_first == True:
