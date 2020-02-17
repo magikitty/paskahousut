@@ -27,8 +27,11 @@ def menuAction(menu_command):
         print(constants.RULES)
         menu()
     if menu_command == constants.MENU_QUIT:
-        print(constants.MESSAGE_QUITTING)
-        constants.QUIT_GAME = True
+        if quitInput() == constants.QUIT_YES:
+            print(constants.MESSAGE_QUITTING)
+            constants.QUIT_GAME = True
+        else:
+            menu()
 
 
 def menuInput():
@@ -39,6 +42,14 @@ def menuInput():
         menu_command = input(constants.MESSAGE_CHOOSE_ACTION).lower()
         if menu_command == constants.MENU_NEW_GAME or menu_command == constants.MENU_LOAD_GAME or menu_command == constants.MENU_SEE_RULES or menu_command == constants.MENU_QUIT:
             return menu_command
+
+
+def quitInput():
+    quit_input_valid = False
+    while quit_input_valid == False:
+        quit_input = input(constants.MESSAGE_QUIT_INPUT).lower()
+        if quit_input == constants.QUIT_YES or quit_input == constants.QUIT_NO:
+            return quit_input
 
 
 # Game() calls the functions that make the game run
