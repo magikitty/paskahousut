@@ -3,6 +3,7 @@ import constants
 import data_cards
 import data_pile_cards
 import player_interaction
+import rules
 
 
 # PlayerTurn starts player's turn
@@ -22,3 +23,11 @@ def computerTurn():
         data_cards.dealCardToComputer()
         data_cards.displayAmountCardsInDeck()
         computer_action.processComputerTurn()
+
+
+def playerHasTurn():
+    if rules.winCheck() == "":
+        player_has_turn = True
+    else:
+        player_has_turn = False
+    return player_has_turn
