@@ -55,7 +55,7 @@ def getInputAction():
 
     while player_command_valid == False: 
         player_command = input(constants.MESSAGE_CHOOSE_ACTION).lower()
-        if player_command == "s" or player_command == "p" or player_command == "d" or player_command == "i" or player_command == "u" or player_command == "m":
+        if player_command == constants.ACTION_PLAY_CARD or player_command == constants.ACTION_DRAW_PLAY or player_command == constants.ACTION_PICK_PILE or player_command == constants.ACTION_ALL_CARDS_IN_PILE or player_command == constants.ACTION_SHOW_HAND or player_command == constants.ACTION_MENU:
             return player_command
 
 
