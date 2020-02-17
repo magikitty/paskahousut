@@ -61,9 +61,8 @@ def newGame():
 
 
 def welcomePlayer():
-    print(constants.MESSAGE_WELCOME)
     GetSaveName()
-    print("Hello", data_player_name.getPlayerName(), "!\n")
+    print("Hello", data_player_name.getPlayerName() + "!")
 
 
 # Gets the player's name
