@@ -19,14 +19,14 @@ def menu():
 
 
 def menuAction(menu_command):
-    if menu_command == "n":
+    if menu_command == constants.MENU_NEW_GAME:
         newGame()
-    if menu_command == "l":
+    if menu_command == constants.MENU_LOAD_GAME:
         loadGame()
-    if menu_command == "r":
+    if menu_command == constants.MENU_SEE_RULES:
         print(constants.RULES)
         menu()
-    if menu_command == "q":
+    if menu_command == constants.MENU_QUIT:
         print(constants.MESSAGE_QUITTING)
         constants.QUIT_GAME = True
 
@@ -36,8 +36,8 @@ def menuInput():
     menu_command_valid = False
 
     while menu_command_valid == False:
-        menu_command = input("Press the key: ").lower()     # debugging
-        if menu_command == "n" or menu_command == "l" or menu_command == "r" or menu_command == "q":
+        menu_command = input(constants.MESSAGE_CHOOSE_ACTION).lower()
+        if menu_command == constants.MENU_NEW_GAME or menu_command == constants.MENU_LOAD_GAME or menu_command == constants.MENU_SEE_RULES or menu_command == constants.MENU_QUIT:
             return menu_command
 
 
