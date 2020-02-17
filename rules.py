@@ -1,6 +1,7 @@
 import constants
 import data_cards
 import data_pile_cards
+import data_player_name
 import data_read_write
 import player_interaction
 import value_cards
@@ -56,7 +57,6 @@ def fourOfAKind():
             next_card_int = value_cards.cardValueToInt(pile_list[i])
             while top_card_int == next_card_int:
                 counter -= 1
-                print(counter)
                 break
             if counter == 1:
                 four_of_a_kind = True
@@ -70,12 +70,8 @@ def winCheck():
     computer_hand = data_cards.cardList(constants.HAND_COMPUTER)
 
     if len(deck_cards) == 0 and len(player_hand) == 0:
-        print("player hand and pile 0")   # debugging
-        winner = "human"
-        # Skip current player turn
+        winner = data_player_name.getPlayerName()
     elif len(deck_cards) == 0 and len(computer_hand) == 0:
         winner = "computer"
-        # Skip current player turn
 
-    print("the winner is", winner)   # debugging
     return winner
