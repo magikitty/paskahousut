@@ -25,7 +25,13 @@ MESSAGE_QUITTING = "Quitting the game. Bye bye!"
 
 # New game messages
 MESSAGE_ENTER_NAME = "Enter your name: "
-MESSAGE_WELCOME = "This is a simple game of Paskahousut. Get ready to play!"
+MESSAGE_WELCOME = (
+    "Welcome to a CLI-based game of:\n"
+    "       _._._._._._._\n"
+    "      | Paskahousut |\n"
+    "       *************\n"
+    "\n     Get ready to play!"
+)
 
 # Load game messages
 MESSAGE_WELCOME_BACK = "Welcome back to your last game of Paskahousut,"
@@ -99,4 +105,20 @@ card_suite_values = {"Clubs": 1, "Diamonds": 2, "Spades": 3, "Hearts": 4}
 QUIT_GAME = False
 
 # Rules of the game
-RULES = "Here are the rules for Paskahousut: "
+RULES = (
+    "\nHere are the rules for Paskahousut:\n"
+    "\n"
+    "The main point of the game is to get rid of all the cards in your hand by playing them.\n"
+    "You start with 3 cards and each turn you can play 1 card.\n"
+    "Whenever you start a turn with less than 3 cards in your hand you will be dealt 1 card.\n"
+    "Generally you can play a card that has the same number or a higher number than the one on the pile.\n"
+    "If there are four cards with the same number on top of the pile then the pile folds.\n"
+    "\n"
+    "However, there are several special cards with special abilities:\n"
+    "- 2: can be placed on any other card (even an A).\n"
+    "- 3: an invisible card that can be placed on anything, except an A. The other player has to beat the card under the 3.\n"
+    "- 7: can be placed on anything, except an A. Only cards less than or equal to 7 can be placed on a 7.\n"
+    "- 10: folds the pile and the player who folded gets another turn.\n"
+    "- A: beats all other cards in the game. Only an A or a 2 can be placed on top of an A."
+)
+
