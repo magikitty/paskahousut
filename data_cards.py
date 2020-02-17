@@ -22,7 +22,7 @@ def dealCardToPlayer():
 
 
 def dealCardToComputer():
-    if testCanDeal(constants.HAND_COMPUTER) == True:
+    if len(cardList(constants.DECK_CARDS)) > 0 and testCanDeal(constants.HAND_COMPUTER) == True:
         card = getRandomCard()
         data_read_write.addToFile("\n" + card, constants.HAND_COMPUTER)
         removeCardFromDeck(card)
