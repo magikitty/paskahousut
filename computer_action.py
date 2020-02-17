@@ -79,6 +79,10 @@ def drawPlayCardComputer():
     card_drawn_int = value_cards.cardValueToInt(card_drawn)
     card_pile_int = value_cards.cardValueToInt(card_pile)
 
+    if card_pile_int == 3:
+        card_pile_value_string = value_cards.getCardValue(data_pile_cards.cardUnderThree())
+        card_pile_int = value_cards.convertValueToInt(card_pile_value_string)
+
     computer_can_play_card = rules.checkCanPlayCard(card_drawn_int, card_pile_int)
     if computer_can_play_card == True:
         print(constants.MESSAGE_COMPUTER_PLAYED_CARD, card_drawn)
