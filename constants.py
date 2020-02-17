@@ -13,6 +13,10 @@ MENU_LOAD_GAME = "l"
 MENU_SEE_RULES = "r"
 MENU_QUIT = "q"
 
+# Menu action messages to verify quitting game
+QUIT_YES = "y"
+QUIT_NO = "n"
+
 # Menu messages
 MESSAGE_MENU_INSTRUCTIONS = (
     "\n"
@@ -22,6 +26,7 @@ MESSAGE_MENU_INSTRUCTIONS = (
     "Press Q to quit the game."
 )
 MESSAGE_QUITTING = "Quitting the game. Bye bye!"
+MESSAGE_QUIT_INPUT = "Are you sure you want to quit? Y/N\n"
 
 # New game messages
 MESSAGE_ENTER_NAME = "Enter your name: "
