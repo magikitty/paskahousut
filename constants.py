@@ -76,12 +76,13 @@ MESSAGE_AMOUNT_CARDS_DECK = "\nThe number of cards left in the deck is:"
 MESSAGE_CARD_UNDER_3 = "card to beat is:"
 MESSAGE_DEALT_CARD = "\nYou have been dealt the card:"
 MESSAGE_EMPTY_HAND = "\nYou don't have any cards left in your hand!"
+MESSAGE_GAME_OVER = "\nThe game has ended! The winner is:"
 MESSAGE_NO_CARDS_UNDER_3 = "(There are no cards under 3)"
 MESSAGE_PILE_EMPTY = "\nThere are no cards in the pile"
 MESSAGE_PLAYER_TURN = (
-    "\n~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
-    "| It's the player's turn |"
-    "\n~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    "\n    ~~~~~~~~~~~~~~~~~~\n"
+    "   || It's your turn ||"
+    "\n    ~~~~~~~~~~~~~~~~~~"
 )
 MESSAGE_TOP_CARD_IN_PILE = "\nHere is the card at the top of the pile:"
 
@@ -90,9 +91,9 @@ MESSAGE_COMPUTER_DREW_CARD = "\nComputer has drawn the card:"
 MESSAGE_COMPUTER_PICK_PILE = "\nComputer has picked up all the cards in the pile."
 MESSAGE_COMPUTER_PLAYED_CARD = "\nComputer has played the card:"
 MESSAGE_COMPUTER_TURN = (
-    "\n----------------------------\n"
-    "| It's the computer's turn |"
-    "\n----------------------------"
+    "\n   ----------------------\n"
+    "  | It's Computer's turn |"
+    "\n   ----------------------"
 )
 
 # Internal Message
