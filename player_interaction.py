@@ -13,14 +13,12 @@ def processPlayerTurn():
 
 
 def playerAction(player_command):
-    # if player_command == "p":
     if player_command == constants.ACTION_PLAY_CARD:
         if len(data_cards.cardList(constants.HAND_PLAYER)) > 0:
             print(constants.MESSAGE_PLAY_CARD)
             playCard()
         else:
             print(constants.MESSAGE_EMPTY_HAND)
-    # elif player_command == "d":
     elif player_command == constants.ACTION_DRAW_PLAY:
         if len(data_cards.cardList(constants.DECK_CARDS)) > 0:
             print(constants.MESSAGE_DRAW_PLAY)
@@ -28,22 +26,18 @@ def playerAction(player_command):
         else:
             print(constants.MESSAGE_EMPTY_DECK)
             processPlayerTurn()
-    # elif player_command == "u":
     elif player_command == constants.ACTION_PICK_PILE:
         if len(data_cards.cardList(constants.PILE_CARDS)) > 0:
             pickUpAllCardsInPile()
         else:
             print(constants.MESSAGE_EMPY_PILE)
             processPlayerTurn()
-    # elif player_command == "i":
     elif player_command == constants.ACTION_ALL_CARDS_IN_PILE:
         data_pile_cards.displayPileNumbered()
         processPlayerTurn()
-    # elif player_command == "s":
     elif player_command == constants.ACTION_SHOW_HAND:
         displayPlayerHandNumbered()
         processPlayerTurn()
-    # elif player_command == "m":
     elif player_command == constants.ACTION_MENU:
         setup_game.menu()
 
@@ -97,7 +91,6 @@ def playCard():
 
 def displayPlayerHandNumbered():
     print(constants.MESSAGE_SHOW_HAND)
-    # card_list = (data_read_write.readFromFile(constants.HAND_PLAYER).split("\n"))
     data_cards.numberedCardList(data_cards.tidyList(cardListPlayer()))
 
 
