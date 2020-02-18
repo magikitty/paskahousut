@@ -33,13 +33,13 @@ MESSAGE_ENTER_NAME = "Enter your name: "
 MESSAGE_WELCOME = (
     "Welcome to a CLI-based game of:\n"
     "       _._._._._._._\n"
-    "      | Paskahousut |\n"
+    "      | Paskahousu |\n"
     "       *************\n"
     "\n     Get ready to play!"
 )
 
 # Load game messages
-MESSAGE_WELCOME_BACK = "Welcome back to your last game of Paskahousut,"
+MESSAGE_WELCOME_BACK = "Welcome back to your last game of Paskahousu,"
 
 MESSAGE_INSTRUCTIONS_INTERACTION = (
     "\n"
@@ -113,7 +113,7 @@ QUIT_GAME = False
 # Rules of the game
 RULES = (
     "\n------------------"
-    "\nPaskahousut rules:\n"
+    "\nPaskahousu rules:\n"
     "------------------"
     "\n"
     "The main point of the game is to get rid of all the cards in your hand by playing them.\n"
@@ -128,5 +128,6 @@ RULES = (
     "- 7: can be placed on anything, except an A. Only cards less than or equal to 7 can be placed on a 7.\n"
     "- 10: folds the pile and the player who folded gets another turn.\n"
     "- A: beats all other cards in the game. Only an A or a 2 can be placed on top of an A."
+    "\n"
 )
 
