@@ -1,5 +1,5 @@
-# Fix circular dependency between modules by moving functionality out of paskahousut.py
-# Paskahousut.py only calls welcomeToGame() and menu() to start game
+# Fix circular dependency between modules by moving functionality out of paskahousu.py
+# Paskahousu.py only calls welcomeToGame() and menu() to start game
 
 # Import package
 import constants
