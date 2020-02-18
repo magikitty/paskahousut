@@ -94,17 +94,13 @@ def gameLoop(player_first):
         if player_first == True:
             if turn.playerHasTurn() == True:
                 turn.playerTurn()
-                # rules.winCheck()
             if turn.playerHasTurn() == True:
                 turn.computerTurn()
-                # rules.winCheck()
         elif player_first == False:
             if turn.playerHasTurn() == True:
                 turn.computerTurn()
-                # rules.winCheck()
             if turn.playerHasTurn() == True:
                 turn.playerTurn()
-                # rules.winCheck()
 
     if rules.winCheck() != "":
         print(constants.MESSAGE_GAME_OVER, rules.winCheck() + "!")
