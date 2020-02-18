@@ -10,16 +10,19 @@ def readFromFile(fileToReadFrom):
 def writeToFile(content, fileToWriteTo):
     doc = open(fileToWriteTo, "w")
     doc.write(content)
+    doc.close()
 
 
 def addToFile(content, fileToAddTo):
     doc = open(fileToAddTo, "a")
     doc.write(content)
+    doc.close()
 
 
 def clearFile(docToClear):
     doc = open(docToClear, "w")
     doc.write("")
+    doc.close()
 
 
 def countContent(contentToCount, fileToCountFrom):
