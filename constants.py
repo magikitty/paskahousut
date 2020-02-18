@@ -20,13 +20,13 @@ QUIT_NO = "n"
 # Menu messages
 MESSAGE_MENU_INSTRUCTIONS = (
     "\n"
-    "Press N to start a new game.\n"
-    "Press L to load your previous game.\n"
-    "Press R to see the game rules.\n"
-    "Press Q to quit the game."
+    "Press N to start a New game.\n"
+    "Press L to Load your previous game.\n"
+    "Press R to see the game Rules.\n"
+    "Press Q to Quit the game."
 )
 MESSAGE_QUITTING = "Quitting the game. Bye bye!"
-MESSAGE_QUIT_INPUT = "Are you sure you want to quit? Y/N\n"
+MESSAGE_QUIT_INPUT = "Are you sure you want to quit? (Y/N) "
 
 # New game messages
 MESSAGE_ENTER_NAME = "Enter your name: "
@@ -43,12 +43,12 @@ MESSAGE_WELCOME_BACK = "Welcome back to your last game of Paskahousut,"
 
 MESSAGE_INSTRUCTIONS_INTERACTION = (
     "\n"
-    "Press P to play a card from your hand.\n"
-    "Press D to draw a card and immediately play it.\n"
-    "Press U to pick up all cards in the pile.\n"
-    "Press I to inspect the cards in the pile.\n"
-    "Press S to show cards in your hand.\n"
-    "Press M to open the menu."
+    "Press P to Play a card from your hand.\n"
+    "Press D to Draw a card and immediately play it.\n"
+    "Press U to pick Up all cards in the pile.\n"
+    "Press I to Inspect the cards in the pile.\n"
+    "Press S to Show cards in your hand.\n"
+    "Press M to open the Menu."
 )
 
 # Action messages
@@ -70,8 +70,8 @@ MESSAGE_SHOW_HAND = "\nHere are your cards:\n"
 MESSAGE_CANNOT_PLAY_CARD = "\nYou cannot play that card. Choose another card or do something else."
 MESSAGE_CHOOSE_ACTION = "\nWhat do you want to do? "
 MESSAGE_CHOOSE_CARD_TO_PLAY = "\nEnter the number of the card you want to play: "
-MESSAGE_EMPTY_DECK = "\nThere are no cards left in the deck. Do something else."
-MESSAGE_EMPY_PILE = "\nThere are no cards in the pile. Do something else."
+MESSAGE_EMPTY_DECK = "\nThe deck is empty. Pick something else to do."
+MESSAGE_EMPY_PILE = "\nThe pile is empty. Pick something else to do."
 MESSAGE_FOLD_PILE = "\nThe pile has been folded."
 MESSAGE_PLAYED_CARD = "\nYou play the card:"
 
@@ -83,7 +83,7 @@ MESSAGE_DEALT_CARD = "\nYou have been dealt the card:"
 MESSAGE_EMPTY_HAND = "\nYou don't have any cards left in your hand!"
 MESSAGE_GAME_OVER = "\nThe game has ended! The winner is:"
 MESSAGE_NO_CARDS_UNDER_3 = "(There are no cards under 3)"
-MESSAGE_PILE_EMPTY = "\nThere are no cards in the pile"
+MESSAGE_PILE_EMPTY = "\nThe pile is empty"
 MESSAGE_PLAYER_TURN = (
     "\n    ~~~~~~~~~~~~~~~~~~\n"
     "   || It's your turn ||"
@@ -112,7 +112,9 @@ QUIT_GAME = False
 
 # Rules of the game
 RULES = (
-    "\nHere are the rules for Paskahousut:\n"
+    "\n------------------"
+    "\nPaskahousut rules:\n"
+    "------------------"
     "\n"
     "The main point of the game is to get rid of all the cards in your hand by playing them.\n"
     "You start with 3 cards and each turn you can play 1 card.\n"
