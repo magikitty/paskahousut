@@ -4,7 +4,9 @@ from pathlib import Path
 
 def readFromFile(fileToReadFrom):
     doc = open(fileToReadFrom, "r")
-    return doc.read()
+    doc_contents = doc.read()
+    doc.close()
+    return doc_contents
 
 
 def writeToFile(content, fileToWriteTo):
@@ -26,8 +28,8 @@ def clearFile(docToClear):
 
 
 def countContent(contentToCount, fileToCountFrom):
-    allContent = readFromFile(fileToCountFrom)
-    return allContent.count(contentToCount)
+    all_content = readFromFile(fileToCountFrom)
+    return all_content.count(contentToCount)
 
 
 def ensureDirectoryExists(directoryPath):
