@@ -1,10 +1,8 @@
-# Fix circular dependency between modules by moving functionality out of paskahousu.py
-# Paskahousu.py only calls welcomeToGame() and menu() to start game
-
-# Import package
+# Import packages
 import constants
 import setup_game
 
+# Prints welcome message
 def welcomeToGame():
     print(constants.MESSAGE_WELCOME)
 
