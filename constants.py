@@ -32,9 +32,9 @@ MESSAGE_QUIT_INPUT = "Are you sure you want to quit? (Y/N) "
 MESSAGE_ENTER_NAME = "Enter your name: "
 MESSAGE_WELCOME = (
     "Welcome to a CLI-based game of:\n"
-    "       _._._._._._._\n"
-    "      | Paskahousu |\n"
-    "       *************\n"
+    "       _._._._._._._._\n"
+    "      |  Paskahousu!  |\n"
+    "       ***************\n"
     "\n     Get ready to play!"
 )
 
