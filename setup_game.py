@@ -2,13 +2,9 @@
 import constants
 import computer_action
 import data_cards
-import data_pile_cards
 import data_player_name
 import data_read_write
 import first_player
-import player_interaction
-import value_cards
-import random
 import rules
 import turn
 
@@ -52,7 +48,7 @@ def quitInput():
             return quit_input
 
 
-# Game() calls the functions that make the game run
+# newGame() calls the functions that make the game run
 def newGame():
     data_read_write.ensureMutableDataExists()
     data_read_write.ensureFilesClear()
@@ -82,6 +78,7 @@ def getSaveName():
     data_player_name.setPlayerName(player_name)
 
 
+# loadGame loads a previously started game
 def loadGame():
     print(constants.MESSAGE_WELCOME_BACK, data_player_name.getPlayerName() + "!")
     gameLoop(first_player.playerGoesFirst())
