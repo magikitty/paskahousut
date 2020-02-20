@@ -6,11 +6,16 @@ A Finnish card game called Paskahousu.
 
 I developed this program as a hobby project to improve my programming skills. The project is written in Python. In this game the user can play a game of Paskahousu against the computer.
 
-The game contains persistent data in the form of text files where data is saved during the game.
-This allows the player to quit and then load their saved game. The game entry point is in paskahousu.py and the gameloop and other set up functions are stored in setup_game.py. The gameloop is composed of a read-eval-print-loop (REPL). The files are organized into an immutable data directory, mutable data directory, and the Python files. The mutable data directory and its files are created at the beginning of a new game if they do not already exist.
+There are many variations of Paskahousu and the rules below are the rules that I have always played the game with. You can read more about Paskahousu [here](https://en.wikipedia.org/wiki/Paskahousu).
 
-There are many variations of Paskahousu and the rules below are the rules that I have always
-played the game with. You can read more about Paskahousu [here](https://en.wikipedia.org/wiki/Paskahousu).
+### Structure of the Project
+
+The game entry point is in paskahousu.py and the gameloop and other set up functions are stored in setup_game.py. The gameloop is composed of a read-eval-print-loop (REPL).
+
+### Data Storage
+
+The game contains persistent data in the form of text files where data is saved during the game.
+This allows the player to quit and then load their saved game. The files are organized into an immutable data directory, mutable data directory, and the Python files. The mutable data directory and its files are created at the beginning of a new game if they do not already exist.
 
 ## Rules of Paskahousu
 
