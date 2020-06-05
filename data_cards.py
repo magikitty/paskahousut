@@ -1,5 +1,4 @@
 import data_read_write
-import data_mutable
 import random
 import constants
 
